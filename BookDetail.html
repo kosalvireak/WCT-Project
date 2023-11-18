@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Detail</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <link rel="stylesheet" href="BookDetail.css">
+    <link rel="stylesheet" href="GlobalStyle.css">
+</head>
+
+<body>
+    <nav class="flex">
+        <h1>This is for NavBar</h1>
+    </nav>
+    <div class="main_container">
+        <div class="book_detail_container">
+            <div class="book_cover_container">
+                <img src="./assets/percy_jackson.jpg" class="book_cover" alt="book cover">
+                <a class="prev" onclick="plusSlides(-1)">&#10094;</a>
+                <a class="next" onclick="plusSlides(1)">&#10095;</a>
+                <div>
+                    <p class="book_title">Percy Jackson & the Lightning Thief</p><br>
+                    <p class="book_author">Author: Rick Riordan</p><br>
+                    <p class="book_category">Category: Fantasy</p>
+                    <p class="book_condition">Book Condition: New</p>
+                </div>
+                <div class="dot_container">
+                    <span class="dot" onclick="currentSlide(1)"></span>
+                    <span class="dot" onclick="currentSlide(2)"></span>
+                    <span class="dot" onclick="currentSlide(3)"></span>
+                </div>
+            </div>
+            <p class="description">Description</p>
+            <div class="book_description_container">
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ex, labore ipsum repudiandae reprehenderit
+                    animi, cum nulla incidunt similique possimus amet commodi doloremque voluptatum impedit adipisci,
+                    facere
+                    itaque nemo exercitationem. Cum!</p>
+            </div>
+        </div>
+        <div class="left_side">
+            <div class="user_profile_container">
+                <img src="./assets/profile.JPG" class="profile_image" alt="profile image">
+                <div class="profile_info">
+                    <p class="profile_name">Khoeun Kosalvireak</p>
+                    <p class="profile_major">Information Technology Engineering</p>
+                    <p class="profile_active">Last Active: 10 months ago</p>
+                </div>
+            </div>
+            <div class="user_info_container">
+                <p>Contact</p>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+</html>
