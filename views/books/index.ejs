@@ -1,0 +1,28 @@
+<% layout('layout/boilerplate') %>
+    <h1>All Books</h1>
+    <div class="row d-flex justify-content-center ">
+        <% for(let book of Books){ %>
+            <div class="card col-sm-6 col-md-3 col-xl-2 m-2 p-0 border-start-1" style="height: 25rem;">
+                <a href="/books/<%=book.id %>"
+                    class="d-flex justify-content-center h-50 bg-success-subtle bg-image hover-zoom">
+                    <img src="<%=book.images %>" class="card-img-top img-fluid rounded " alt="<%=book.title %>"
+                        style="object-fit: contain;">
+
+                </a>
+                <div class="card-body p-0 m-0 h-25">
+                    <h5 class="card-title p-3 m-0">
+                        <%=book.title %>
+                    </h5>
+                </div>
+                <div class="card-body p-3 pt-0 h-25">
+                    <p>Condition: <%= book.condition %>
+                    </p>
+                    <% if (book.availability){%>
+                        <p class="btn btn-success">Avaliable</p>
+                        <% }else{%>
+                            <p class="btn btn-danger">Not Avaliable</p>
+                            <% }%>
+                </div>
+            </div>
+            <% } %>
+    </div>

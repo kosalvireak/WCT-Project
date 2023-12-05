@@ -1,0 +1,8 @@
+<% layout('layout/boilerplate') %>
+    <h1>Edit</h1>
+    <form method="POST" action='/books/<%= book.id %>?_method=PATCH'>
+        <textarea name="comment" id="" cols="30" rows="10">
+            <%=book.comment%>
+        </textarea>
+        <button>Save</button>
+    </form>

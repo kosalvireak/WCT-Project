@@ -1,0 +1,15 @@
+<% layout('layout/boilerplate') %>
+    <h1>Make new book</h1>
+    <form action="/books" method="post">
+        <section>
+            <label for="username">Enter Username: </label>
+            <input type="text" name="username" placeholder="username" id="username">
+        </section>
+        <section>
+            <label for="comment">Book Title</label><br>
+            <textarea id="comment" cols="30" rows="5" name="comment"></textarea>
+        </section>
+        <a href="/books" class="btn btn-secondary">All Books</a>
+        <button class="btn btn-primary">Submit</button>
+
+    </form>
