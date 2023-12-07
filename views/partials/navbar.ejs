@@ -1,73 +1,75 @@
 <!-- Navbar-->
-<nav class="navbar navbar-expand-lg navbar-light bg-seavphov">
+<nav class="navbar navbar-expand-lg navbar-light bg-seavphov p-0">
     <div class="container-fluid justify-content-between">
         <!-- Left elements -->
-        <div class="d-flex nav_container">
-            <form class="globalSearch">
-                <input class="globalSearch" type="search" placeholder="Search...">
-            </form>
-        </div>
-        <!-- Left elements -->
+        <%- include('../partials/searchinput') %>
+            <!-- Left elements -->
 
-        <!-- Center elements -->
-        <ul class="navbar-nav flex-row d-none d-md-flex">
-            <li class="nav-item me-3 me-lg-1 active">
-                <a class="nav-link" href="/books">
-                    <span><i class="fas fa-book-open fa-lg"></i></span>
-                </a>
-            </li>
-        </ul>
-        <!-- Center elements -->
+            <!-- Center elements -->
+            <ul class="navbar-nav flex-row d-none d-md-flex">
+                <li class="nav-item me-3 me-lg-1 active">
+                    <a class="nav-link" href="/books">
+                        <span><i class="fas fa-book-open fa-lg"></i></span>
+                    </a>
+                </li>
+            </ul>
+            <!-- Center elements -->
 
-        <!-- Right elements -->
-        <ul class="navbar-nav flex-row justify-content-center">
-            <li class="nav-item me-3 me-lg-1">
-                <a class="nav-link d-sm-flex align-items-sm-center" href="#">
-                    <img src="https://mdbcdn.b-cdn.net/img/new/avatars/1.webp" class="rounded-circle" height="22"
-                        alt="Black and White Portrait of a Man" loading="lazy" />
-                    <strong class="d-none d-sm-block ms-1">Vireak</strong>
-                </a>
-            </li>
-            <li class="nav-item me-3 me-lg-1">
-                <a class="nav-link" href="/books/new">
-                    <span><i class="fas fa-plus-circle fa-lg"></i></span>
-                </a>
-            </li>
-            <!-- Chat dropdown -->
-            <li class="nav-item dropdown me-3 me-lg-1">
-                <a data-mdb-dropdown-init class="nav-link dropdown-toggle hidden-arrow" href="#"
-                    id="navbarDropdownMenuLink" role="button" aria-expanded="false">
-                    <i class="fas fa-comments fa-lg"></i>
+            <!-- Right elements -->
+            <ul class="navbar-nav flex-row justify-content-center">
+                <li class="nav-item me-2 me-lg-1">
+                    <a class="nav-link d-sm-flex align-items-sm-center" href="/user">
+                        <img src="../img/profile.JPG" class="rounded-circle navbar_img border border-3"
+                            alt="Black and White Portrait of a Man" loading="lazy" />
+                        <strong class="d-none d-sm-block ms-1">Vireak</strong>
+                    </a>
+                </li>
+                <li class="nav-item me-2  d-sm-flex align-items-sm-center ">
+                    <a class="nav-link" href="/books/new">
+                        <span><i class="fas fa-plus-circle fa-lg"></i></span>
+                    </a>
+                </li>
+                <!-- Chat dropdown -->
+                <li class="nav-item dropdown me-2  d-sm-flex align-items-sm-center">
+                    <a data-mdb-dropdown-init class="nav-link dropdown-toggle hidden-arrow" href="#"
+                        id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                        <i class="fas fa-comments fa-lg"></i>
 
-                    <span class="badge rounded-pill badge-notification bg-danger">2</span>
-                </a>
-                <div class="dropdown-menu dropdown-menu-end notification-ui_dd"
-                    aria-labelledby="navbarDropdownMenuLink">
-                    <%- include('../partials/chatdropdown') %>
-                </div>
-            </li>
-            <!-- Chat dropdown -->
+                        <span class="badge rounded-pill badge-notification bg-danger">2</span>
+                    </a>
+                    <div class="dropdown-menu dropdown-menu-end notification-ui_dd"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <%- include('../partials/chatdropdown') %>
+                    </div>
+                </li>
+                <!-- Chat dropdown -->
 
-            <!-- Notification dropdown -->
-            <li class="nav-item dropdown me-3 me-lg-1">
-                <a data-mdb-dropdown-init class="nav-link dropdown-toggle hidden-arrow" href="#"
-                    id="navbarDropdownMenuLink" role="button" aria-expanded="false">
-                    <i class="fas fa-bell fa-lg"></i>
-                    <span class="badge rounded-pill badge-notification bg-danger">12</span>
-                </a>
-                <ul class="dropdown-menu dropdown-menu-end  notification-ui_dd"
-                    aria-labelledby="navbarDropdownMenuLink">
-                    <%- include('../partials/notificationdropdown') %>
-                </ul>
-            </li>
-            <!-- Notification dropdown -->
-        </ul>
-        <!-- Right elements -->
+                <!-- Notification dropdown -->
+                <li class="nav-item dropdown me-3  d-sm-flex align-items-sm-center">
+                    <a data-mdb-dropdown-init class="nav-link dropdown-toggle hidden-arrow" href="#"
+                        id="navbarDropdownMenuLink" role="button" aria-expanded="false">
+                        <i class="fas fa-bell fa-lg"></i>
+                        <span class="badge rounded-pill badge-notification bg-danger">12</span>
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end  notification-ui_dd"
+                        aria-labelledby="navbarDropdownMenuLink">
+                        <%- include('../partials/notificationdropdown') %>
+                    </ul>
+                </li>
+                <!-- Notification dropdown -->
+            </ul>
+            <!-- Right elements -->
     </div>
 </nav>
 <!-- Navbar -->
 
-<style>
+<style scoped>
+    .navbar_img {
+        height: 48px;
+        width: 48px;
+        object-fit: cover;
+    }
+
     .cd__main {
         display: block !important;
     }

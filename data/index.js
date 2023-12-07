@@ -155,4 +155,30 @@ var Books = [
     }
 ]
 
-module.exports = { Books }
+var SavedBooks = [
+    {
+        id: uuid(),
+        title: "Angkor and the Khmer Civilization",
+        autor: "Michael D. Coe",
+        images: ["https://m.media-amazon.com/images/I/61AAY5fIoxL._SY466_.jpg"],
+        descriptions: "A great deal is now known about the brilliant Khmer civilization that flourished among the monsoon forests and rice paddies of mainland Southeast Asia, thanks to the pioneering work of French scholars and the application of modern archaeological techniques such as remote sensing from the space shuttle.",
+        condition: CONDITION.AS_NEW,
+        availability: AVAILABILITY.TRUE,
+        categories: CATEGORIES.HISTORY,
+        username: "Todd",
+        comment: 'lol that is so funny'
+    },
+    {
+        id: uuid(),
+        title: "The Enchanted Forest Chronicles",
+        author: "Patricia C. Wrede",
+        images: ["https://images.pangobooks.com/images/b5785587-3024-4751-b808-8710f4a5ce75?width=800&quality=85&crop=1%3A1"],
+        descriptions: "Join Princess Cimorene in a delightful fantasy world filled with dragons, wizards, and magical adventures.",
+        condition: CONDITION.AS_NEW,
+        availability: AVAILABILITY.TRUE,
+        categories: CATEGORIES.NOVEL,
+        username: "Todd"
+    },
+]
+
+module.exports = { Books, SavedBooks }

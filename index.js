@@ -59,6 +59,10 @@ app.patch('/books/:id', (req, res) => {
     res.redirect('/books')
 })
 
+app.get('/user', (req, res) => {
+    res.render('user/userprofile', { Books })
+})
+
 app.listen(3000, () => {
     console.log("On Port 3000!")
 })
