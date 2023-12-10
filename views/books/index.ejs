@@ -1,7 +1,8 @@
 <% layout('layout/boilerplate') %>
     <div class="row d-flex justify-content-center">
         <% for(let book of Books){ %>
-            <div class="Single_Book card col-sm-6 col-md-3 col-xl-2 m-2 p-0 border-start-1" style="height: 25rem;">
+            <div class="Single_Book card col-sm-6 col-md-3 col-xl-2 m-2 p-0 border-start-1 shadow-5-strong"
+                style="height: 25rem;">
                 <a href="/books/<%=book.id %>"
                     class="d-flex justify-content-center h-60 bg-success-subtle bg-image hover-zoom">
                     <img src="<%=book.images %>" class="card-img-top img-fluid rounded " alt="<%=book.title %>"

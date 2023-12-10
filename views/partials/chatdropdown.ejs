@@ -51,56 +51,7 @@
         display: none;
     }
 
-    .chat-ui_icon {
-        position: relative;
-    }
-
-    .chat-ui_icon .unread-chat {
-        display: inline-block;
-        height: 7px;
-        width: 7px;
-        border-radius: 7px;
-        background-color: #66BB6A;
-        position: absolute;
-        top: 7px;
-        left: 12px;
-    }
-
-    @media (min-width: 900px) {
-        .chat-ui_icon .unread-chat {
-            left: 20px;
-        }
-    }
-
-    .chat-ui_dd {
-        padding: 0;
-        border-radius: 10px;
-        -webkit-box-shadow: 0 5px 20px -3px rgba(0, 0, 0, 0.16);
-        box-shadow: 0 5px 20px -3px rgba(0, 0, 0, 0.16);
-        border: 0;
-        max-width: 400px;
-    }
-
-    @media (min-width: 900px) {
-        .chat-ui_dd {
-            min-width: 400px;
-            position: absolute;
-            left: -192px;
-            top: 70px;
-        }
-    }
-
-
-    .chat-ui_dd .chat-ui_dd-header {
-        border-bottom: 1px solid #ddd;
-        padding: 15px;
-    }
-
-    .chat-ui_dd .chat-ui_dd-header h3 {
-        margin-bottom: 0;
-    }
-
-    .chat-ui_dd .chat-ui_dd-content {
+    .chat-ui_dd-content {
         max-height: 500px;
         overflow: auto;
     }
@@ -148,17 +99,5 @@
         width: 20px;
         border-radius: 5px;
         margin-top: 15px;
-    }
-
-    .white-mode {
-        text-decoration: none;
-        padding: 17px 40px;
-        background-color: yellow;
-        border-radius: 3px;
-        color: black;
-        transition: .35s ease-in-out;
-        position: fixed;
-        left: 15px;
-        bottom: 15px
     }
 </style>

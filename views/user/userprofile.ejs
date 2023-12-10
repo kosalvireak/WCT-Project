@@ -1,11 +1,11 @@
 <% layout('layout/boilerplate') %>
     <div class="container-sm b-1 p-0">
-        <div class="container-sm cover_container w-1800 b-1 p-0">
-            <img src="../img/cover.jpg" class="w-100 h-100 cover_image b-1" alt="profile cover">
+        <div class="container-sm cover_container w-1800 b-1 p-0" style="height: 355px;">
+            <img src="../img/cover.jpg" class="w-100 h-100 cover_image b-1 rounded-7" alt="profile cover">
         </div>
         <div class="container-sm flex user_info b-1">
             <div class="flex user_info_left">
-                <img src="../img/profile.JPG" alt="profile image" class="profile_image shadow">
+                <img src="../img/profile.JPG" alt="profile image" class="profile_image shadow rounded-circle">
                 <div class="profile_name">
                     <h3>Khoeun Kosalvireak</h3>
                     <p>Information Technology Engineering</p>
@@ -13,36 +13,36 @@
             </div>
             <div class="flex user_info_right">
                 <div class="flex profile_socialmedia">
-                    <a href="http://google.com/" class="ms-2">
+                    <a href="http://google.com/" class="ms-2 text-black">
                         <img src="https://cdn0.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-facebook-2019-square2-512.png"
-                            alt="facebook" class="icon">
+                            alt="facebook" class=" icon rounded-5">
                     </a>
-                    <a href="http://google.com/" class="ms-2">
+                    <a href="http://google.com/" class="ms-2 text-black">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/c/ca/LinkedIn_logo_initials.png/640px-LinkedIn_logo_initials.png"
-                            alt="linkedin" class="icon">
+                            alt="linkedin" class=" icon rounded-5">
                     </a>
-                    <a href="http://google.com/" class="ms-2">
+                    <a href="http://google.com/" class="ms-2 text-black">
                         <img src="https://static.dezeen.com/uploads/2023/07/x-logo-twitter-elon-musk_dezeen_2364_col_0.jpg"
-                            alt="twitter" class="icon">
+                            alt="twitter" class=" icon rounded-5">
                     </a>
-                    <a href="http://google.com/" class="ms-2">
+                    <a href="http://google.com/" class="ms-2 text-black">
                         <img src="https://upload.wikimedia.org/wikipedia/commons/thumb/8/82/Telegram_logo.svg/2048px-Telegram_logo.svg.png"
-                            alt="telegram" class="icon">
+                            alt="telegram" class=" icon rounded-5">
                     </a>
 
-                    <a href="http://google.com/" class="ms-2">
+                    <a href="http://google.com/" class="ms-2 text-black">
                         <img src="https://cdn4.iconfinder.com/data/icons/social-messaging-ui-color-shapes-2-free/128/social-instagram-new-square2-512.png"
-                            alt="instragram" class="icon">
+                            alt="instragram" class=" icon rounded-5">
                     </a>
                 </div>
             </div>
         </div>
         <div class="container-sm flex book_options">
-            <div class="flex book_option_child book_option_child_selected">
-                <a href="#">My Books</a>
+            <div class="flex book_option_child book_option_child_selected rounded-7">
+                <a href="#" class="text-black">My Books</a>
             </div>
-            <div class="flex book_option_child">
-                <a href="#">Saved Books</a>
+            <div class="flex book_option_child rounded-7">
+                <a href="#" class="text-black">Saved Books</a>
             </div>
         </div>
         <div>
@@ -56,15 +56,8 @@
             justify-content: center;
         }
 
-        .cover_container {
-            height: 355px;
-            padding: 0px;
-        }
-
         .cover_image {
-            width: 100%;
             object-fit: cover;
-            border-radius: 15px;
             margin-top: 30px;
         }
 
@@ -86,7 +79,6 @@
         .profile_image {
             width: 200px;
             height: 200px;
-            border-radius: 9999px;
             object-fit: cover;
             border: 9px solid white;
         }
@@ -95,7 +87,6 @@
             margin-left: 30px;
             margin-top: 45px;
             font-weight: bolder;
-
         }
 
         .user_info_right {
@@ -107,34 +98,30 @@
             align-items: baseline !important;
             flex-direction: row;
             height: 60px;
+            margin-top: 54px;
         }
 
         .icon {
             width: 50px;
             height: 50px;
-            border-radius: 7px;
         }
 
         .book_options {
             justify-content: space-between !important;
             flex-direction: row;
-            /* width: 1610px; */
             height: 50px;
             padding: 0px;
-
         }
 
         .book_option_child {
             width: 50%;
             height: 50px;
             text-align: center;
-            border-radius: 15px;
             border-bottom: 1px solid rgb(125, 125, 125);
 
         }
 
         .book_option_child:hover {
-            border-radius: 15px;
             background-color: #9FB97F;
             border-bottom: 3px solid black;
             font-size: large;
@@ -150,8 +137,6 @@
 
         a:link {
             text-decoration: none;
-            color: black;
-
         }
 
         @media only screen and (max-width: 991.98px) {
@@ -166,6 +151,15 @@
                 width: 150px;
                 height: 150px;
             }
+
+            .profile_name {
+                margin-top: 0px;
+            }
+
+            .profile_socialmedia {
+                margin-top: 0px;
+            }
+
 
             .user_info_left {
                 height: 150px;
@@ -182,10 +176,6 @@
         @media only screen and (max-width: 600px) {
             .cover_container {
                 width: 500px;
-            }
-
-            .cover_image {
-                object-fit: cover;
             }
 
             .user_info {
