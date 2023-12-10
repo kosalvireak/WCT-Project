@@ -3,7 +3,7 @@ const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
 const { v4: uuid } = require('uuid');
-var { Books } = require('../SeavPhov/data/index')
+var { SavedBooks, Books } = require('../SeavPhov/data/index')
 const ejsMate = require('ejs-mate')
 
 app.engine('ejs', ejsMate);
@@ -61,6 +61,10 @@ app.patch('/books/:id', (req, res) => {
 
 app.get('/user', (req, res) => {
     res.render('user/userprofile', { Books })
+})
+
+app.get('/user/savedbooks', (req, res) => {
+    res.render('user/userprofilesavedbook', { SavedBooks })
 })
 
 app.listen(3000, () => {
