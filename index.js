@@ -2,8 +2,7 @@ const express = require('express');
 const app = express();
 const path = require('path');
 const methodOverride = require('method-override');
-const { v4: uuid } = require('uuid');
-var { SavedBooks, Books } = require('../SeavPhov/data/index')
+var { MyBooks, Books, ToggleSavedBooks } = require('../SeavPhov/data/index')
 const ejsMate = require('ejs-mate')
 
 app.engine('ejs', ejsMate);
@@ -20,7 +19,8 @@ app.get('/', (req, res) => {
 
 app.get('/books', (req, res) => {
     console.log("call comment")
-    res.render('books/index', { Books })
+    const books = Books;
+    res.render('books/index', { books })
 })
 
 app.get('/books/new', (req, res) => {
@@ -29,19 +29,19 @@ app.get('/books/new', (req, res) => {
 
 app.post('/books', (req, res) => {
     const { username, comment } = req.body;
-    Books.push({ username, comment, id: uuid() })
+    Books.push({ username, comment, id: Books.length })
     res.redirect('/books')
 })
 
 app.get('/books/:id', (req, res) => {
     const { id } = req.params;
-    const book = Books.find(c => c.id === id);
+    const book = Books.find(c => c.id == id);
     res.render('books/show', { book })
 })
 
 app.get('/books/:id/edit', (req, res) => {
     const { id } = req.params;
-    const book = Books.find(c => c.id === id);
+    const book = Books.find(c => c.id == id);
     res.render('books/edit', { book })
 })
 
@@ -54,17 +54,19 @@ app.delete('/books/:id', (req, res) => {
 app.patch('/books/:id', (req, res) => {
     const { id } = req.params;
     const newCommentText = req.body.comment;
-    const foundComment = Books.find(c => c.id === id);
+    const foundComment = Books.find(c => c.id == id);
     foundComment.comment = newCommentText;
     res.redirect('/books')
 })
 
 app.get('/user', (req, res) => {
-    res.render('user/userprofile', { Books })
+    const books = Books.filter(book => MyBooks.includes(book.id));
+    res.render('user/userprofile', { books })
 })
 
 app.get('/user/savedbooks', (req, res) => {
-    res.render('user/userprofilesavedbook', { SavedBooks })
+    const books = Books.filter(book => book.issaved == true);
+    res.render('user/userprofilesavedbook', { books })
 })
 
 app.listen(3000, () => {
