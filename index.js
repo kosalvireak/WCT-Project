@@ -23,6 +23,13 @@ app.get('/books', (req, res) => {
     res.render('books/index', { books })
 })
 
+app.post('/books/search', async (req, res) => {
+    const { search } = req.body;
+
+    const books = await Books.filter(book => book.title.toLowerCase().includes(search));
+    res.render('books/index', { books });
+});
+
 app.get('/books/new', (req, res) => {
     res.render('books/new')
 })
