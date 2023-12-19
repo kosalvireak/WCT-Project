@@ -171,7 +171,7 @@ var Books = [
     }
 ]
 
-var MyBooks = [4, 8, 10, 12];
+var MyBooks = [4, 8, 10, 12, 7];
 
 
 

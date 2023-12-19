@@ -18,12 +18,16 @@
     </head>
 
     <body class="d-flex flex-column vh-100">
-        <%- include('../partials/navbar') %>
-            <main class="container">
-                <%- body %>
-            </main>
-            <%- include('../partials/footer') %>
-                <script type="text/javascript" src="../js/mdb.umd.min.js"></script>
+        <% if(isLogin) {%>
+            <%- include('../partials/navbar') %>
+                <% }%>
+                    <main class="container">
+                        <%- body %>
+                    </main>
+                    <% if(isLogin) {%>
+                        <%- include('../partials/footer') %>
+                            <% }%>
+                                <script type="text/javascript" src="../js/mdb.umd.min.js"></script>
     </body>
 
 </html>
