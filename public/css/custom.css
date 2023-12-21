@@ -29,6 +29,7 @@ footer, header, hgroup, menu, nav, section {
 }
 body {
 	line-height: 1;
+	font-family: 'Nunito', sans-serif;
 }
 ol, ul {
 	list-style: none;
@@ -64,4 +65,7 @@ table {
 
 .bg-seavphov{
   background-color: #9FB97F;
+}
+.font-Roboto{
+	font-family: 'Roboto Slab', serif;
 }
