@@ -25,11 +25,13 @@
             </div>
             <div class=" col-12 p-0 col-md-4 ps-md-3 d-flex flex-column rounded-7  ">
                 <div class="user_profile_container bg-seavphov rounded-7">
-                    <img src="../img/profile.JPG" class="profile_image" alt="profile image">
-                    <div class="profile_info">
-                        <p class="profile_name">Khoeun Kosalvireak</p>
-                        <p class="profile_major">Information Technology Engineering</p>
-                        <p class="profile_active">Last Active: 10 months ago</p>
+                    <div class="d-flex justify-content-evenly flex-row w-100">
+                        <img src="../img/profile.JPG" class="profile_image" alt="profile image">
+                        <div class="d-flex flex-column justify-content-evenly">
+                            <h4>Khoeun Kosalvireak</h4>
+                            <p>Information Technology Engineering</p>
+                            <p class="text-active">Last Active: 10 months ago</p>
+                        </div>
                     </div>
                 </div>
                 <div class="user_info_container mt-3 bg-seavphov">
@@ -57,8 +59,10 @@
         }
 
         .user_profile_container {
-            height: 20vh;
+            height: 150px;
             display: flex;
+            align-items: center;
+            justify-self: center;
             flex-direction: row;
             flex-wrap: wrap;
         }
@@ -186,27 +190,9 @@
             border-radius: 9999px;
             object-fit: cover;
             border: 3px solid white;
-            margin: 28px;
         }
 
-        .profile_info {
-            margin-top: 35px;
-            color: white;
-        }
-
-        .profile_info .profile_name {
-            font-weight: bold;
-            font-size: 22px;
-
-        }
-
-        .profile_info .profile_major {
-            /* margin-top: -15px; */
-            font-size: 13px;
-        }
-
-        .profile_info .profile_active {
-            /* margin-top: -10px; */
-            font-size: 10px;
+        .text-active {
+            font-size: 12px;
         }
     </style>
