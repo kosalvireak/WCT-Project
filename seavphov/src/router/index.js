@@ -15,7 +15,7 @@ const router = createRouter({
             component: Login,
         },
         {
-            path: "/singup",
+            path: "/signup",
             name: "signup",
             component: Signup,
         },
@@ -36,7 +36,7 @@ const router = createRouter({
         },
         {
             path: "/:pathMatch(.*)*",
-            redirect: '/home'
+            redirect: '/signup'
         }
 
     ]
