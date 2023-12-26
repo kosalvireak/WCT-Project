@@ -1,6 +1,11 @@
 <template>
   <div class="notification-ui_dd-header">
-    <h5 class="text-center">Your Messages</h5>
+    <h5
+      class="d-flex align-items-center justify-content-center"
+      style="height: 50px; border-bottom: 1px solid gray"
+    >
+      Your Messages
+    </h5>
   </div>
   <div class="chat-ui_dd-content">
     <div class="chat-list">
@@ -14,7 +19,7 @@
         </p>
       </div>
       <div class="chat-list_feature-img">
-        <img src="../img/bluedot.png" alt="Blue circle" />
+        <img src="/img/bluedot.png" alt="Blue circle" />
       </div>
     </div>
     <div class="chat-list">
@@ -29,7 +34,7 @@
         </p>
       </div>
       <div class="chat-list_feature-img">
-        <img src="../img/bluedot.png" alt="Blue circle" />
+        <img src="/img/bluedot.png" alt="Blue circle" />
       </div>
     </div>
     <div class="chat-list">

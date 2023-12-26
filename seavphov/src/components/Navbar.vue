@@ -9,9 +9,9 @@
       <!-- Center elements -->
       <ul class="navbar-nav flex-row d-none d-md-flex">
         <li class="nav-item me-3 me-lg-1 active">
-          <a class="nav-link" href="/books">
+          <a class="nav-link" href="/home">
             <img
-              src="../img/book.png"
+              src="/img/book.png"
               alt="book logo"
               srcset=""
               class="img-fluid"
@@ -25,9 +25,9 @@
       <!-- Right elements -->
       <ul class="navbar-nav flex-row justify-content-center">
         <li class="nav-item me-2 me-lg-1">
-          <a class="nav-link d-sm-flex align-items-sm-center" href="/user">
+          <a class="nav-link d-sm-flex align-items-sm-center" href="/profile">
             <img
-              src="../img/profile.JPG"
+              src="/img/profile.JPG?url"
               class="rounded-circle navbar_img border border-3"
               alt="Black and White Portrait of a Man"
               loading="lazy"
@@ -43,11 +43,10 @@
         <!-- Chat dropdown -->
         <li class="nav-item dropdown me-2 d-sm-flex align-items-sm-center">
           <a
-            data-mdb-dropdown-init
             class="nav-link dropdown-toggle hidden-arrow"
             href="#"
-            id="navbarDropdownMenuLink"
             role="button"
+            data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             <i class="fas fa-comments fa-xl"></i>
@@ -56,10 +55,7 @@
               >2</span
             >
           </a>
-          <div
-            class="dropdown-menu dropdown-menu-end notification-ui_dd"
-            aria-labelledby="navbarDropdownMenuLink"
-          >
+          <div class="dropdown-menu" style="left: -350px">
             <ChatDropdown />
           </div>
         </li>
@@ -68,11 +64,10 @@
         <!-- Notification dropdown -->
         <li class="nav-item dropdown me-3 d-sm-flex align-items-sm-center">
           <a
-            data-mdb-dropdown-init
             class="nav-link dropdown-toggle hidden-arrow"
             href="#"
-            id="navbarDropdownMenuLink"
             role="button"
+            data-bs-toggle="dropdown"
             aria-expanded="false"
           >
             <i class="fas fa-bell fa-xl"></i>
@@ -80,10 +75,7 @@
               >12</span
             >
           </a>
-          <ul
-            class="dropdown-menu dropdown-menu-end notification-ui_dd"
-            aria-labelledby="navbarDropdownMenuLink"
-          >
+          <ul class="dropdown-menu" style="left: -350px">
             <NotificationDropdown />
           </ul>
         </li>

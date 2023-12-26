@@ -2,7 +2,7 @@
   <div class="d-flex nav_container rounded-7">
     <form
       class="rounded-7 d-flex justify-content-between"
-      action="/books/search"
+      action="#"
       method="POST"
     >
       <input type="text" id="search" name="search" placeholder="Search..." />

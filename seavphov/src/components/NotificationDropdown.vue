@@ -1,6 +1,11 @@
 <template>
   <div class="notification-ui_dd-header">
-    <h5 class="text-center">Notification</h5>
+    <h5
+      class="d-flex align-items-center justify-content-center"
+      style="height: 50px; border-bottom: 1px solid gray"
+    >
+      Notification
+    </h5>
   </div>
   <div class="notification-ui_dd-content">
     <div class="notification-list notification-list--unread">
@@ -12,7 +17,7 @@
         <p><small>1 day ago</small></p>
       </div>
       <div class="notification-list_feature-img">
-        <img src="../img/Exploring the Cosmos.webp" alt="Feature image" />
+        <img src="/img/Exploring the Cosmos.webp" alt="Feature image" />
       </div>
     </div>
     <div class="notification-list notification-list--unread">
@@ -24,7 +29,7 @@
         <p><small>1 day ago</small></p>
       </div>
       <div class="notification-list_feature-img">
-        <img src="../img/Exploring the Cosmos.webp" alt="Feature image" />
+        <img src="/img/Exploring the Cosmos.webp" alt="Feature image" />
       </div>
     </div>
     <div class="notification-list">
@@ -36,7 +41,7 @@
         <p><small>1 day ago</small></p>
       </div>
       <div class="notification-list_feature-img">
-        <img src="../img/Tears of the Kingdom.jpg" alt="Feature image" />
+        <img src="/img/Tears of the Kingdom.jpg" alt="Feature image" />
       </div>
     </div>
     <div class="notification-list">
@@ -48,7 +53,7 @@
         <p><small>1 day ago</small></p>
       </div>
       <div class="notification-list_feature-img">
-        <img src="../img/Tears of the Kingdom.jpg" alt="Feature image" />
+        <img src="/img/Tears of the Kingdom.jpg" alt="Feature image" />
       </div>
     </div>
   </div>
