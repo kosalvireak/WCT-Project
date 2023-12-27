@@ -1,5 +1,5 @@
 import { createStore } from 'vuex'
-
+import createPersistedState from 'vuex-persistedstate'
 
 const CONDITION = {
     AS_NEW: 'as new',
@@ -26,6 +26,9 @@ const CATEGORIES = {
 }
 
 const store = createStore({
+    plugins: [createPersistedState({
+        storage: window.sessionStorage,
+    })],
     state: {
         books: [
             {
@@ -175,48 +178,58 @@ const store = createStore({
             }
         ],
         savedbooks: [3, 5, 7],
+        mybooks: [2, 4, 9, 12],
+
     },
 
     getters: {
         allBooks(state) {
-            return state.books
+            return state.books;
+        },
+        book: (state) => (id) => {
+            return state.books.filter(book => book.id == id);
         },
         savedBooks(state) {
-            return state.savedbooks;
+            // take all the books and filter out only book that has id match what inside array savedbooks
+            return state.books.filter(book => state.savedbooks.includes(book.id));
+        },
+        myBooks(state) {
+            // take all the books and filter out only book that has id match what inside array mybooks
+            return state.books.filter(book => state.mybooks.includes(book.id));
         }
     },
     mutations: {
         changeIsSavedToTrue(state, id) {
-            console.log("before addToSaved", state.books[id - 1].issaved);
             state.books[id - 1].issaved = SAVEDBOOK.TRUE;
-            console.log("after addToSaved", state.books[id - 1].issaved);
         },
         changeIsSavedToFalse(state, id) {
-            console.log("before removeFromSaved", state.books[id - 1].issaved);
             state.books[id - 1].issaved = SAVEDBOOK.FALSE;
-            console.log("after removeFromSaved", state.books[id - 1].issaved);
         },
         addTosavedbooks(state, id) {
             state.savedbooks.push(id);
-            console.log("addTosavedbooks", state.savedbooks);
+            console.log(state.savedbooks);
         },
         removeFromsavedbooks(state, id) {
             state.savedbooks = state.savedbooks.filter(element => element !== id);
-            console.log("removeFromsavedbooks", state.savedbooks);
+            console.log(state.savedbooks);
         }
 
     },
     actions: {
         changeIsSaved({ commit }, id) {
-            console.log("context", id);
-            // if book is already saved
+            id = parseInt(id);
+            // if book is already saved. Change issaved to False and remove from array 
             if (this.state.books[id - 1].issaved) {
                 commit('changeIsSavedToFalse', id);
                 commit('removeFromsavedbooks', id);
             } else {
+                // else book is already saved. Change issaved to True and push from array 
                 commit('changeIsSavedToTrue', id);
                 commit('addTosavedbooks', id);
             }
+        },
+        getSingleBook({ commit }, id) {
+
         }
     }
 })

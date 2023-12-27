@@ -3,12 +3,8 @@
     <div style="height: 300px">
       <Carousel />
     </div>
-    <div
-      class="d-flex align-items-center justify-content-center flex-row flex-wrap"
-    >
-      <div v-for="book in getAllBooks" :key="book.id">
-        <Book :book="book" :key="book.id" />
-      </div>
+    <div>
+      <RenderBook :books="getAllBooks" />
     </div>
   </div>
 </template>
@@ -16,9 +12,10 @@
   <script>
 import Carousel from "../components/Carousel.vue";
 import Book from "../components/Book.vue";
+import RenderBook from "../components/RenderBook.vue";
 export default {
   name: "Home",
-  components: { Carousel, Book },
+  components: { Carousel, Book, RenderBook },
   computed: {
     getAllBooks() {
       return this.$store.getters.allBooks;

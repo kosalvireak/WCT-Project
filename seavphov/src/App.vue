@@ -1,7 +1,7 @@
 
 
 <template>
-  <div class="d-flex flex-column bg-success-subtle">
+  <div class="d-flex flex-column h-auto bg-success-subtle">
     <div v-if="isLogin">
       <NavBar />
     </div>

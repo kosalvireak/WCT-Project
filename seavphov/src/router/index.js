@@ -3,7 +3,7 @@ import Home from "../view/Home.vue"
 import BookDetail from "../view/BookDetail.vue"
 import Login from "../view/Login.vue"
 import Signup from "../view/Signup.vue"
-import UserProfile from "../view/UserProfile.vue"
+import Profile from "../view/Profile.vue"
 
 
 const router = createRouter({
@@ -22,7 +22,7 @@ const router = createRouter({
         {
             path: "/profile",
             name: "profile",
-            component: UserProfile,
+            component: Profile,
         },
         {
             path: "/home",
