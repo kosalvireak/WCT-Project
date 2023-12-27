@@ -1,7 +1,7 @@
 <template>
   <div class="notification-ui_dd-header">
     <h5
-      class="d-flex align-items-center justify-content-center"
+      class="d-flex align-items-center justify-content-center fw-bold"
       style="height: 50px; border-bottom: 1px solid gray"
     >
       Your Messages
@@ -13,7 +13,7 @@
         <img src="https://i.imgur.com/w4Mp4ny.jpg" alt="user" />
       </div>
       <div class="chat-list_detail fw-bold text-black">
-        <p class="font-weight-bold"><b>Richard Miles</b></p>
+        <b>Richard Miles</b>
         <p class="font-weight-bold">
           How's going? <small class="text-gray">• 2 minutes ago</small>
         </p>
@@ -27,7 +27,7 @@
         <img src="https://i.imgur.com/ltXdE4K.jpg" alt="user" />
       </div>
       <div class="chat-list_detail fw-bold text-black">
-        <p><b>Brian Cumin</b></p>
+        <b>Brian Cumin</b>
         <p>
           Can you give me your Location?
           <small class="text-gray">• 1 day ago</small>
@@ -42,7 +42,7 @@
         <img src="https://i.imgur.com/CtAQDCP.jpg" alt="user" />
       </div>
       <div class="chat-list_detail">
-        <p>Lance Bogrol</p>
+        <b>Lance Bogrol</b>
         <p>Thank you so much! <small class="text-gray">• 1 day ago</small></p>
       </div>
       <div class="chat-list_feature-img">

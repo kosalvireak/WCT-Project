@@ -1,7 +1,7 @@
 <template>
   <div class="notification-ui_dd-header">
     <h5
-      class="d-flex align-items-center justify-content-center"
+      class="d-flex align-items-center justify-content-center fw-bold"
       style="height: 50px; border-bottom: 1px solid gray"
     >
       Notification

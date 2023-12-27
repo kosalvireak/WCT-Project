@@ -23,7 +23,7 @@
       <!-- Center elements -->
 
       <!-- Right elements -->
-      <ul class="navbar-nav flex-row justify-content-center">
+      <ul class="navbar-nav flex-row justify-content-center align-items-center">
         <li class="nav-item me-2 me-lg-1">
           <a class="nav-link d-sm-flex align-items-sm-center" href="/profile">
             <img
