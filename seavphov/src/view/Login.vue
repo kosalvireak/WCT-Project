@@ -1,99 +1,67 @@
 <template>
   <div class="main-container bg-seavphov">
-    <div class="logo">
+    <div class="d-flex align-items-center justify-content-center logo">
       <img src="/img/book.png" alt="booklogo" class="logo" />
     </div>
     <div class="container">
       <h1>Log In</h1>
-      <form action="#">
-        <form>
-          <!-- Email input -->
-          <div data-mdb-input-init class="form-outline mb-4">
-            <input type="email" id="form2Example1" class="form-control" />
-            <label class="form-label" for="form2Example1">Email address</label>
-          </div>
+      <form v-on:submit.prevent="Login()">
+        <div class="form-floating mb-3">
+          <input
+            type="email"
+            class="form-control"
+            id="email"
+            placeholder="name@example.com"
+            v-model="email"
+          />
+          <label for="email">Email address</label>
+        </div>
+        <div class="form-floating">
+          <input
+            type="password"
+            class="form-control"
+            id="password"
+            placeholder="Password"
+            v-model="password"
+          />
+          <label for="password">Password</label>
+        </div>
 
-          <!-- Password input -->
-          <div data-mdb-input-init class="form-outline mb-4">
-            <input type="password" id="form2Example2" class="form-control" />
-            <label class="form-label" for="form2Example2">Password</label>
-          </div>
-
-          <!-- 2 column grid layout for inline styling -->
-          <div class="row mb-4">
-            <div class="col d-flex justify-content-center">
-              <!-- Checkbox -->
-              <div class="form-check">
-                <input
-                  class="form-check-input"
-                  type="checkbox"
-                  value=""
-                  id="form2Example34"
-                  checked
-                />
-                <label class="form-check-label" for="form2Example34">
-                  Remember me
-                </label>
-              </div>
+        <!-- 2 column grid layout for inline styling -->
+        <div class="row my-3">
+          <div class="col d-flex justify-content-center">
+            <!-- Checkbox -->
+            <div class="form-check">
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="form1Example3"
+                checked
+                v-model="isShowPassword"
+                @click="showPassword"
+              />
+              <label class="form-check-label" for="form1Example3">
+                Show password
+              </label>
             </div>
-
-            <div class="col">
-              <!-- Simple link -->
-              <a href="#!">Forgot password?</a>
-            </div>
           </div>
 
-          <!-- Submit button -->
-          <button
-            data-mdb-ripple-init
-            type="button"
-            class="btn btn-primary btn-block mb-4"
-          >
-            <a href="/home">Log In</a>
-          </button>
-
-          <!-- Register buttons -->
-          <div class="text-center">
-            <p>Not a member? <a href="#!">Register</a></p>
-            <p>or sign up with:</p>
-            <button
-              data-mdb-ripple-init
-              type="button"
-              class="btn btn-secondary btn-floating mx-1"
-            >
-              <i class="fab fa-facebook-f"></i>
-            </button>
-
-            <button
-              data-mdb-ripple-init
-              type="button"
-              class="btn btn-secondary btn-floating mx-1"
-            >
-              <i class="fab fa-google"></i>
-            </button>
-
-            <button
-              data-mdb-ripple-init
-              type="button"
-              class="btn btn-secondary btn-floating mx-1"
-            >
-              <i class="fab fa-twitter"></i>
-            </button>
-
-            <button
-              data-mdb-ripple-init
-              type="button"
-              class="btn btn-secondary btn-floating mx-1"
-            >
-              <i class="fab fa-github"></i>
-            </button>
+          <div class="col">
+            <!-- Simple link -->
+            <a href="#!">Forgot password?</a>
           </div>
-        </form>
+        </div>
+        <p v-if="Error" class="text-danger">{{ errorMessage }}</p>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block">Log in</button>
       </form>
-      <button type="submit"></button>
-      <p class="no-account">
+
+      <!-- Register buttons -->
+      <div class="text-center mt-3">
         Doesn't have an account? <a href="/signup">Sign up</a>
-      </p>
+      </div>
+      <p class="no-account"></p>
     </div>
   </div>
 </template>
@@ -101,6 +69,56 @@
   <script>
 export default {
   name: "Login",
+  data() {
+    return {
+      email: "",
+      password: "",
+      Error: false,
+      errorMessage: "",
+      isShowPassword: false,
+    };
+  },
+  methods: {
+    Login() {
+      // if both input are empty
+      if (this.email.length == 0 || this.password.length == 0) {
+        this.Error = true;
+        this.errorMessage = "Email or password cannot be empty!";
+      }
+      // if both input are not empty
+      else if (this.email.length > 0 || this.password.length > 0) {
+        const users = this.$store.getters.allUsers;
+        // if found in users array, the index i will return
+        const i = users.findIndex((u) => u.email === this.email);
+        if (i > -1) {
+          // if password is match
+          if (users[i].password == this.password) {
+            this.$router.push("/home");
+          }
+          // if password is not match
+          else {
+            this.Error = true;
+            this.errorMessage = "Password is incorrect!";
+          }
+        }
+        // else user not found in users array
+        else {
+          this.Error = true;
+          this.errorMessage = "User not found!";
+        }
+      } else {
+        this.Error = true;
+        this.errorMessage = "Incorrect email or password!";
+      }
+    },
+    showPassword() {
+      if (this.isShowPassword) {
+        password.type = "password";
+      } else {
+        password.type = "text";
+      }
+    },
+  },
 };
 </script>
   
@@ -149,21 +167,11 @@ label {
   margin-bottom: 5px;
 }
 
-input[type="text"],
-input[type="password"] {
-  width: 50%;
-  padding: 10px;
-  color: #d9d9d9;
-  border-radius: 30px;
-  margin-bottom: 15px;
-}
-
 button {
   text-align: center;
   background-color: #5c836e;
   color: #fff;
   padding: 15px 100px;
-  border: none;
   border-radius: 30px;
   font-weight: bold;
   cursor: pointer;

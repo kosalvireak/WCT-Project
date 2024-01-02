@@ -30,6 +30,25 @@ const store = createStore({
         storage: window.sessionStorage,
     })],
     state: {
+        users: [
+            {
+                email: "virakvary@gmail.com",
+                password: "12345678"
+            },
+            {
+                email: "david@gmail.com",
+                password: "12345678"
+            },
+            {
+                email: "nyvath@gmail.com",
+                password: "12345678"
+
+            },
+            {
+                email: "theary@gmail.com",
+                password: "12345678"
+            }
+        ],
         books: [
             {
                 id: 1,
@@ -179,10 +198,12 @@ const store = createStore({
         ],
         savedbooks: [3, 5, 7],
         mybooks: [2, 4, 9, 12],
-
     },
 
     getters: {
+        allUsers(state) {
+            return state.users;
+        },
         allBooks(state) {
             return state.books;
         },
