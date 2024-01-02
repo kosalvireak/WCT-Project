@@ -2,17 +2,33 @@
   <div class="d-flex nav_container rounded-7">
     <form
       class="rounded-7 d-flex justify-content-between"
-      action="#"
-      method="POST"
+      v-on:submit.prevent="SearchBooks()"
     >
-      <input type="text" id="search" name="search" placeholder="Search..." />
+      <input
+        type="text"
+        id="search"
+        name="search"
+        placeholder="Search..."
+        v-model="inputText"
+      />
       <button type="submit">Search</button>
     </form>
   </div>
 </template>
 
 <script>
-export default {};
+export default {
+  data() {
+    return {
+      inputText: "",
+    };
+  },
+  methods: {
+    SearchBooks() {
+      console.log(this.inputText);
+    },
+  },
+};
 </script>
 
 

@@ -30,11 +30,10 @@
   
   <script>
 import Carousel from "../components/Carousel.vue";
-import Book from "../components/Book.vue";
 import RenderBook from "../components/RenderBook.vue";
 export default {
   name: "Home",
-  components: { Carousel, Book, RenderBook },
+  components: { Carousel, RenderBook },
   data() {
     return {
       Books: [],

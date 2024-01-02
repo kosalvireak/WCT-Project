@@ -142,7 +142,7 @@ const store = createStore({
                 images: ["/img/The Future Of Coding.jpg"],
                 descriptions: "Explore the fascinating world of programming and its impact on shaping the future of technology.",
                 condition: CONDITION.GOOD,
-                issaved: SAVEDBOOK.FALSE,
+                issaved: SAVEDBOOK.TRUE,
                 availability: AVAILABILITY.TRUE,
                 categories: CATEGORIES.TEXT_BOOK,
                 username: "Todd",
@@ -178,7 +178,7 @@ const store = createStore({
                 images: ["/img/Chronicles of the Shadow.jpg"],
                 descriptions: "Embark on an epic space odyssey with Captain Nova as she navigates the uncharted territories of the cosmos.",
                 condition: CONDITION.GOOD,
-                issaved: SAVEDBOOK.FALSE,
+                issaved: SAVEDBOOK.TRUE,
                 availability: AVAILABILITY.TRUE,
                 categories: CATEGORIES.SCIENCE_FICTION,
                 username: "Todd",
@@ -196,7 +196,7 @@ const store = createStore({
                 username: "Todd",
             }, {
                 id: 13,
-                title: "Angkor and the Khmer Civilization",
+                title: "Angkor and the Khmer Civilization part 2",
                 autor: "Michael D. Coe",
                 images: ["/img/Angkor and the Khmer Civilization.jpg"],
                 descriptions: "A great deal is now known about the brilliant Khmer civilization that flourished among the monsoon forests and rice paddies of mainland Southeast Asia, thanks to the pioneering work of French scholars and the application of modern archaeological techniques such as remote sensing from the space shuttle.",
@@ -209,7 +209,7 @@ const store = createStore({
             },
             {
                 id: 14,
-                title: "The Enchanted Forest Chronicles",
+                title: "The Enchanted Forest Chronicles part 2",
                 author: "Patricia C. Wrede",
                 images: ["/img/The Enchanted Forest Chronicles.webp"],
                 descriptions: "Join Princess Cimorene in a delightful fantasy world filled with dragons, wizards, and magical adventures.",
@@ -221,7 +221,7 @@ const store = createStore({
             },
             {
                 id: 15,
-                title: "Quantum Paradox",
+                title: "Quantum Paradox part 2",
                 author: "Ryan A. Greene",
                 images: ["/img/Quantum Paradox.jpg"],
                 descriptions: "Dive into the mind-bending world of quantum physics and explore the paradoxes that challenge our understanding of reality.",
@@ -233,7 +233,7 @@ const store = createStore({
             },
             {
                 id: 16,
-                title: "Exploring the Cosmos",
+                title: "Exploring the Cosmos part 2",
                 author: "Dr. Neil Armstrong",
                 images: ["/img/Exploring the Cosmos.webp"],
                 descriptions: "Embark on a cosmic journey with Dr. Neil Armstrong as he explores the wonders of the universe.",
@@ -245,7 +245,7 @@ const store = createStore({
             },
             {
                 id: 17,
-                title: "Mysteries of the Ancient World",
+                title: "Mysteries of the Ancient World part 2",
                 author: "Elena P. Miller",
                 images: ["/img/Mysteries of the Ancient World.webp"],
                 descriptions: "Unravel the secrets of ancient civilizations and the mysteries that still captivate historians today.",
@@ -257,7 +257,7 @@ const store = createStore({
             },
             {
                 id: 18,
-                title: "Shadow of the Eclipse",
+                title: "Shadow of the Eclipse part 2",
                 author: "Jonathan K. Black",
                 images: ["/img/Shadow of the Eclipse.jpg"],
                 descriptions: "A thrilling tale of magic, prophecies, and a world on the brink of darkness during a rare celestial event.",
@@ -269,7 +269,7 @@ const store = createStore({
             },
             {
                 id: 19,
-                title: "The Alchemist's Legacy",
+                title: "The Alchemist's Legacy part 2",
                 author: "Sophie R. Gardner",
                 images: ["/img/The Alchemist's Legacy.jpg"],
                 descriptions: "Follow the journey of an aspiring alchemist as they seek the legendary philosopher's stone and unlock the secrets of transmutation.",
@@ -281,7 +281,7 @@ const store = createStore({
             },
             {
                 id: 20,
-                title: "The Future Of Coding",
+                title: "The Future Of Coding part 2",
                 author: "Alex Q. Developer",
                 images: ["/img/The Future Of Coding.jpg"],
                 descriptions: "Explore the fascinating world of programming and its impact on shaping the future of technology.",
@@ -293,7 +293,7 @@ const store = createStore({
             },
             {
                 id: 21,
-                title: "The Celestial Symphony",
+                title: "The Celestial Symphony part 2",
                 author: "Aria S. Harmon",
                 images: ["/img/The Celestial Symphony.jpg"],
                 descriptions: "Journey through the cosmos as celestial beings orchestrate the fate of the universe in a symphony of cosmic proportions.",
@@ -305,19 +305,19 @@ const store = createStore({
             },
             {
                 id: 22,
-                title: "Riddles of the Sphinx",
+                title: "Riddles of the Sphinx part 2",
                 author: "Samuel R. Enigma",
                 images: ["/img/Riddles of the Sphinx.jpg"],
                 descriptions: "Solve the ancient riddles guarded by the Sphinx and unveil the hidden truths that lie beneath the sands of time.",
                 condition: CONDITION.AS_NEW,
-                issaved: SAVEDBOOK.FALSE,
+                issaved: SAVEDBOOK.TRUE,
                 availability: AVAILABILITY.TRUE,
                 categories: CATEGORIES.MYSTERY,
                 username: "Todd",
             },
             {
                 id: 23,
-                title: "Chronicles of the Shadow",
+                title: "Chronicles of the Shadow part 2",
                 author: "Astrid Nova",
                 images: ["/img/Chronicles of the Shadow.jpg"],
                 descriptions: "Embark on an epic space odyssey with Captain Nova as she navigates the uncharted territories of the cosmos.",
@@ -329,7 +329,7 @@ const store = createStore({
             },
             {
                 id: 24,
-                title: "The Legend of Zelda: Tears of the Kingdom",
+                title: "The Legend of Zelda: Tears of the Kingdom part 2",
                 author: "Elysia E. Evergreen",
                 images: ["/img/Tears of the Kingdom.jpg"],
                 descriptions: "Immerse yourself in the enchanting world of Elaria, where magical crystals hold the key to the kingdom's destiny.",
@@ -361,6 +361,9 @@ const store = createStore({
         myBooks(state) {
             // take all the books and filter out only book that has id match what inside array mybooks
             return state.books.filter(book => state.mybooks.includes(book.id));
+        },
+        booksByCategory: (state) => (category) => {
+            return state.books.filter(book => book.categories == category);
         }
     },
     mutations: {
@@ -393,7 +396,7 @@ const store = createStore({
                 commit('addTosavedbooks', id);
             }
         },
-        getSingleBook({ commit }, id) {
+        getSearchBook({ commit },) {
 
         }
     }

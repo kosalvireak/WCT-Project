@@ -88,23 +88,7 @@
             <!-- Chat Button -->
             <div class="chat_button d-flex justify-content-center">
               <button type="button" class="btn w-50 rounded-6">
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="24"
-                  height="24"
-                  viewBox="0 0 24 24"
-                  fill="none"
-                  stroke="currentColor"
-                  stroke-width="2"
-                  stroke-linecap="round"
-                  stroke-linejoin="round"
-                  class="lucide lucide-message-circle-more"
-                >
-                  <path d="M7.9 20A9 9 0 1 0 4 16.1L2 22Z" />
-                  <path d="M8 12h.01" />
-                  <path d="M12 12h.01" />
-                  <path d="M16 12h.01" />
-                </svg>
+                <span><i class="fas fa-commenting fa-2xl me-1"></i></span>
                 Chat
               </button>
             </div>
@@ -113,18 +97,7 @@
             <!-- Location & Map -->
             <div class="location d-flex flex-wrap flex-column my-1 mx-3">
               <h6>
-                <svg
-                  xmlns="http://www.w3.org/2000/svg"
-                  width="30"
-                  height="30"
-                  fill="#588157"
-                  class="bi bi-geo-alt-fill"
-                  viewBox="0 0 16 16"
-                >
-                  <path
-                    d="M8 16s6-5.686 6-10A6 6 0 0 0 2 6c0 4.314 6 10 6 10m0-7a3 3 0 1 1 0-6 3 3 0 0 1 0 6"
-                  /></svg
-                >Location
+                <span><i class="fas fa-map-pin fa-xl me-1"></i></span>Location
               </h6>
 
               <!-- Map -->
@@ -149,28 +122,43 @@
         </div>
       </div>
     </div>
+    <div class="RelatedBooks mt-3">
+      <h5>Related Books</h5>
+      <RenderBook :books="relatedBooks" />
+    </div>
   </div>
 </template>
 
 <script>
+import RenderBook from "../components/RenderBook.vue";
 export default {
   name: "BookDetail",
+  components: { RenderBook },
   data() {
     return {
       paramsId: this.$route.params.id,
       book: {},
+      relatedBooks: [],
     };
   },
   methods: {
     getBook() {
       this.book = this.$store.getters.book(this.paramsId)[0];
+      this.relatedBooks = this.$store.getters.booksByCategory(
+        this.book.categories
+      );
     },
     toggleIsSaved() {
       this.$store.dispatch("changeIsSaved", this.paramsId);
       console.log("hello");
     },
   },
-  created() {
+  beforeRouteUpdate(to, from, next) {
+    this.paramsId = to.params.id;
+    this.getBook();
+    next();
+  },
+  mounted() {
     this.getBook();
   },
 };

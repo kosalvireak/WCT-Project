@@ -32,14 +32,16 @@ const router = createRouter({
         {
             path: '/home/:id',
             name: 'BookDetail',
-            component: BookDetail
+            component: BookDetail,
         },
         {
             path: "/:pathMatch(.*)*",
             redirect: '/signup'
         }
 
-    ]
+    ], scrollBehavior(to, from, savedPosition) {
+        return { x: 0, y: 0 };
+    },
 })
 
 
