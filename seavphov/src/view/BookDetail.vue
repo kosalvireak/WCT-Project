@@ -3,7 +3,7 @@
     <div class="row">
       <div
         class="book_detail_container d-flex flex-column flex-wrap col-12 col-md-8 p-0 rounded-7"
-        style="height: 750px"
+        style="height: 650px"
       >
         <div class="book_cover_container">
           <img :src="book.images" class="book_cover" alt="book cover" />
@@ -69,7 +69,7 @@
         <!-- User Contact -->
         <div
           class="bg-seavphov rounded-7 d-flex flex-wrap flex-column mt-3"
-          style="height: 580px"
+          style="height: 484px"
         >
           <div class="d-flex flex-column w-100">
             <h4 class="mx-3 mt-3 font-Roboto">Contact</h4>
@@ -199,7 +199,7 @@ export default {
 }
 
 .book_cover_container {
-  height: 60%;
+  height: 70%;
   display: flex;
 }
 
