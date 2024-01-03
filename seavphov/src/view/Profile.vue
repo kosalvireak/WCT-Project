@@ -4,13 +4,13 @@
     <div class="container-sm flex book_options">
       <div
         class="flex book_option_child rounded-7"
-        :class="{ book_option_child_selected: isMyBooksPage }"
+        :class="{ 'book_option_child_selected fw-bold': isMyBooksPage }"
       >
         <a class="text-black" @click="toggleMyBooksPage('mybooks')">My Books</a>
       </div>
       <div
         class="flex book_option_child rounded-7"
-        :class="{ book_option_child_selected: !isMyBooksPage }"
+        :class="{ 'book_option_child_selected fw-bold': !isMyBooksPage }"
       >
         <a class="text-black" @click="toggleMyBooksPage('savedbooks')"
           >Saved Books</a

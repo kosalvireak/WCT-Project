@@ -2,7 +2,7 @@ import { createStore } from 'vuex'
 import createPersistedState from 'vuex-persistedstate'
 
 const CONDITION = {
-    AS_NEW: 'as new',
+    AS_NEW: 'as-new',
     GOOD: 'good',
     WELL_WORN: 'well-worn',
 };
@@ -22,7 +22,8 @@ const CATEGORIES = {
     NOVEL: 'Novel',
     TEXT_BOOK: 'Text-Book',
     HISTORY: 'History',
-    SCIENCE: 'Science'
+    SCIENCE: 'Science',
+    FANTASY: 'Fantasy',
 }
 
 const store = createStore({
@@ -335,7 +336,7 @@ const store = createStore({
                 descriptions: "Immerse yourself in the enchanting world of Elaria, where magical crystals hold the key to the kingdom's destiny.",
                 condition: CONDITION.WELL_WORN,
                 issaved: SAVEDBOOK.FALSE,
-                availability: AVAILABILITY.FALSE,
+                availability: AVAILABILITY.TRUE,
                 categories: CATEGORIES.FANTASY,
                 username: "Todd",
             }
