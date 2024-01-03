@@ -34,22 +34,31 @@ const store = createStore({
         users: [
             {
                 email: "virakvary@gmail.com",
-                password: "12345678"
+                password: "12345678",
+                profile: "https://scontent.fpnh2-1.fna.fbcdn.net/v/t39.30808-6/408715420_329255713210706_8267503967006690585_n.jpg?_nc_cat=110&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeFEiBQr97qZht7vYvxKQgJ5vYtgfsSr4UC9i2B-xKvhQG-T0GyfyLk8Ez5Top7Sm4zIjLpe65dVIusot0S_KnUM&_nc_ohc=5roejroO1mwAX-3Nvrm&_nc_zt=23&_nc_ht=scontent.fpnh2-1.fna&oh=00_AfCjmktnTe5-9-Fnk1J5_hyrFA2Wcrx74qFQzpP3I4A-0w&oe=659A57F6",
             },
             {
                 email: "david@gmail.com",
-                password: "12345678"
+                password: "12345678",
+                profile: "https://scontent.fpnh2-2.fna.fbcdn.net/v/t39.30808-6/410228260_6840343219419819_3455081290048657551_n.jpg?_nc_cat=105&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeEGRKGj-zkAV-k5mnhnPXeVT_JOaHvos3FP8k5oe-izcSxCN-aKiddZmrcgQL6k_jDd2z6XK7XMey8WEYEM_rnd&_nc_ohc=qGgiPL09EVAAX-jj6ds&_nc_zt=23&_nc_ht=scontent.fpnh2-2.fna&oh=00_AfCZx3q1lR_2Go_7jrQP3ru9aD6aouoDBciE-6RL87mnHA&oe=659B64A9",
+
             },
             {
                 email: "nyvath@gmail.com",
-                password: "12345678"
+                password: "12345678",
+                profile: "https://scontent.fpnh2-3.fna.fbcdn.net/v/t39.30808-6/410385958_2028434880840692_1714898826776506602_n.jpg?_nc_cat=102&ccb=1-7&_nc_sid=9c7eae&_nc_eui2=AeEoKJD2QOuDz4yBi5tsQ4bOGwSrX1QdoWEbBKtfVB2hYWrQj2l5z31rXqPdweJmMHrcaLguAHs437e3EaUsjszY&_nc_ohc=u5Dq5YRx4eYAX8VgX-I&_nc_zt=23&_nc_ht=scontent.fpnh2-3.fna&oh=00_AfCnMBcp97DfhWrhbChfVzgNWwQJZgMZpujt4MMVvLXn_w&oe=659A3160",
 
             },
             {
                 email: "theary@gmail.com",
-                password: "12345678"
+                password: "12345678",
+                profile: "https://scontent.fpnh2-3.fna.fbcdn.net/v/t39.30808-6/405185145_1730173207470631_4416260050122501943_n.jpg?_nc_cat=108&ccb=1-7&_nc_sid=efb6e6&_nc_eui2=AeF7dgqYUqx7XL_JGXd9q7cEJRwdZbzRetUlHB1lvNF61dc9jS_z30dhDXFlwQsxp8f8486cqF_7O7wKPGiaWylI&_nc_ohc=tvudgrHNxg8AX9aQaoF&_nc_zt=23&_nc_ht=scontent.fpnh2-3.fna&oh=00_AfAQ65ctTAlez4PJR6XA6vpd2QYg0yuLIAKMTcGOayug6A&oe=659AB98B",
             }
         ],
+        loggedInUser: {
+            username: "Anonymous",
+            profile: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+        },
         books: [
             {
                 id: 1,
@@ -349,6 +358,9 @@ const store = createStore({
         allUsers(state) {
             return state.users;
         },
+        loggedInUser(state) {
+            return state.loggedInUser;
+        },
         allBooks(state) {
             return state.books;
         },
@@ -368,6 +380,10 @@ const store = createStore({
         }
     },
     mutations: {
+        addLoggedInUser(state, payload) {
+            state.loggedInUser.username = payload.username;
+            state.loggedInUser.profile = payload.profile;
+        },
         changeIsSavedToTrue(state, id) {
             state.books[id - 1].issaved = SAVEDBOOK.TRUE;
         },
@@ -397,8 +413,11 @@ const store = createStore({
                 commit('addTosavedbooks', id);
             }
         },
-        getSearchBook({ commit },) {
-
+        addLoggedInUser({ commit }, { email, profile }) {
+            console.log(profile);
+            let username0 = email.split('@');
+            const username = username0[0];
+            commit('addLoggedInUser', { username, profile });
         }
     }
 })

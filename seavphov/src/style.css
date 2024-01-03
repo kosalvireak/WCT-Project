@@ -69,3 +69,7 @@ table {
 .font-Roboto{
 	font-family: 'Roboto Slab', serif;
 }
+
+.username::first-letter {
+	text-transform: capitalize;
+  }

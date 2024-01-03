@@ -49,7 +49,7 @@
 
           <div class="col">
             <!-- Simple link -->
-            <a href="#!">Forgot password?</a>
+            <a @click="forgotPassword()" href="">Forgot password?</a>
           </div>
         </div>
         <p v-if="Error" class="text-danger">{{ errorMessage }}</p>
@@ -93,6 +93,11 @@ export default {
         if (i > -1) {
           // if password is match
           if (users[i].password == this.password) {
+            console.log(this.email, users[i].profile);
+            this.$store.dispatch("addLoggedInUser", {
+              email: `${this.email}`,
+              profile: `${users[i].profile}`,
+            });
             this.$router.push("/home");
           }
           // if password is not match
@@ -117,6 +122,9 @@ export default {
       } else {
         password.type = "text";
       }
+    },
+    forgotPassword() {
+      alert("Comming soon");
     },
   },
 };

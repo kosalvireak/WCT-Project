@@ -27,12 +27,14 @@
         <li class="nav-item me-2 me-lg-1">
           <a class="nav-link d-sm-flex align-items-sm-center" href="/profile">
             <img
-              src="/img/profile.JPG?url"
+              :src="this.$store.getters.loggedInUser.profile"
               class="rounded-circle navbar_img border border-3"
               alt="Black and White Portrait of a Man"
               loading="lazy"
             />
-            <strong class="d-none d-sm-block ms-1">Vireak</strong>
+            <strong class="d-none d-sm-block ms-1 username">{{
+              this.$store.getters.loggedInUser.username
+            }}</strong>
           </a>
         </li>
         <li class="nav-item me-2 d-sm-flex align-items-sm-center">
@@ -81,7 +83,7 @@
         </li>
         <!-- Notification dropdown -->
         <li class="nav-item me-2 d-sm-flex align-items-sm-center">
-          <a class="nav-link" href="/login">
+          <a class="nav-link" href="/login" @click="Logout()">
             <span><i class="fa-solid fa-right-from-bracket fa-xl"></i></span>
           </a>
         </li>
@@ -98,6 +100,15 @@ import SearchInput from "./SearchInput.vue";
 export default {
   name: "Navbar",
   components: { ChatDropdown, NotificationDropdown, SearchInput },
+  methods: {
+    Logout() {
+      this.$store.dispatch("addLoggedInUser", {
+        email: "Anonymous@gmail.com",
+        profile:
+          "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+      });
+    },
+  },
 };
 </script>
 

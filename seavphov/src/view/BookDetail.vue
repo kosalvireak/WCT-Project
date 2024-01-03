@@ -54,12 +54,14 @@
         >
           <div class="d-flex justify-content-evenly flex-row w-100">
             <img
-              src="/img/profile.JPG?url"
+              :src="this.$store.getters.allUsers[0].profile"
               class="profile_image"
               alt="profile_img"
             />
             <div class="d-flex flex-column justify-content-evenly">
-              <h4 class="font-Roboto">Khoeun Kosalvireak</h4>
+              <h4 class="font-Roboto username">
+                {{ getUserInfoName }}
+              </h4>
               <p>Information Technology Engineering</p>
               <p class="text-active">Last Active: 10 months ago</p>
             </div>
@@ -151,6 +153,11 @@ export default {
     toggleIsSaved() {
       this.$store.dispatch("changeIsSaved", this.paramsId);
       console.log("hello");
+    },
+  },
+  computed: {
+    getUserInfoName() {
+      return this.$store.getters.allUsers[0].email.split("@")[0];
     },
   },
   beforeRouteUpdate(to, from, next) {

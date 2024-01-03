@@ -14,12 +14,12 @@
     <div class="container-sm flex user_info b-1">
       <div class="flex user_info_left">
         <img
-          src="/img/profile.JPG?url"
+          :src="this.$store.getters.loggedInUser.profile"
           alt="profile image"
           class="profile_image shadow rounded-circle"
         />
-        <div class="profile_name">
-          <h3>Khoeun Kosalvireak</h3>
+        <div class="profile_name username">
+          <h3>{{ this.$store.getters.loggedInUser.username }}</h3>
           <p>Information Technology Engineering</p>
         </div>
       </div>

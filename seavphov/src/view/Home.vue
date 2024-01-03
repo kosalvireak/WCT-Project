@@ -129,7 +129,11 @@
               <br />
             </div>
           </div>
-          <button class="btn btn-danger mt-2" @click="clearFilter()">
+          <button
+            class="btn btn-danger mt-2 ms-3"
+            @click="clearFilter()"
+            style="width: 6rem"
+          >
             clear
           </button>
         </div>
