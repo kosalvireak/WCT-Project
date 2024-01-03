@@ -350,8 +350,10 @@ const store = createStore({
                 username: "Todd",
             }
         ],
+        booksCopy: [],
         savedbooks: [3, 5, 7, 8, 11, 17, 22],
         mybooks: [2, 4, 9, 12],
+        searchWord: "",
     },
 
     getters: {
@@ -377,6 +379,9 @@ const store = createStore({
         },
         booksByCategory: (state) => (category) => {
             return state.books.filter(book => book.categories == category);
+        },
+        searchWord(state) {
+            return state.searchWord;
         }
     },
     mutations: {
@@ -392,12 +397,14 @@ const store = createStore({
         },
         addTosavedbooks(state, id) {
             state.savedbooks.push(id);
-            console.log(state.savedbooks);
         },
         removeFromsavedbooks(state, id) {
             state.savedbooks = state.savedbooks.filter(element => element !== id);
-            console.log(state.savedbooks);
-        }
+        },
+        filterBookOnSearch(state, word) {
+            state.searchWord = word;
+            // state.books = state.books.filter(book => book.title.toLowerCase().includes(word));
+        },
 
     },
     actions: {
@@ -414,10 +421,12 @@ const store = createStore({
             }
         },
         addLoggedInUser({ commit }, { email, profile }) {
-            console.log(profile);
             let username0 = email.split('@');
             const username = username0[0];
             commit('addLoggedInUser', { username, profile });
+        },
+        getSearchWord({ commit }, word) {
+            commit('filterBookOnSearch', word);
         }
     }
 })

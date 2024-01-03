@@ -4,6 +4,7 @@ import BookDetail from "../view/BookDetail.vue"
 import Login from "../view/Login.vue"
 import Signup from "../view/Signup.vue"
 import Profile from "../view/Profile.vue"
+import SearchResult from "../view/SearchResult.vue"
 
 
 const router = createRouter({
@@ -28,6 +29,11 @@ const router = createRouter({
             path: "/home",
             name: "home",
             component: Home,
+        },
+        {
+            path: "/search",
+            name: "search",
+            component: SearchResult,
         },
         {
             path: '/home/:id',

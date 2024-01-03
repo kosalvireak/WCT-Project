@@ -25,7 +25,8 @@ export default {
   },
   methods: {
     SearchBooks() {
-      console.log(this.inputText);
+      this.$store.dispatch("getSearchWord", this.inputText);
+      this.$router.push("/search");
     },
   },
 };
