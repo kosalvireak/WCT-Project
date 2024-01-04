@@ -27,9 +27,9 @@ const CATEGORIES = {
 }
 
 const store = createStore({
-    plugins: [createPersistedState({
-        storage: window.sessionStorage,
-    })],
+    // plugins: [createPersistedState({
+    //     storage: window.sessionStorage,
+    // })],
     state: {
         users: [
             {
@@ -63,15 +63,14 @@ const store = createStore({
             {
                 id: 1,
                 title: "Angkor and the Khmer Civilization",
-                autor: "Michael D. Coe",
+                author: "Michael D. Coe",
                 images: ["/img/Angkor and the Khmer Civilization.jpg"],
-                descriptions: "A great deal is now known about the brilliant Khmer civilization that flourished among the monsoon forests and rice paddies of mainland Southeast Asia, thanks to the pioneering work of French scholars and the application of modern archaeological techniques such as remote sensing from the space shuttle.",
+                descriptions: "A great deal is now known about the brilliant Khmer civilization that flourished among the monsoon forests and rice paddies of mainland Southeast Asia, thanks to the pioneering work of French scholars and the application of modern archaeological techniques such as remote sensing from the space shuttle. A great deal is now known about the brilliant Khmer civilization that flourished among the monsoon forests and rice paddies of mainland Southeast Asia, thanks to the pioneering work of French scholars and the application of modern archaeological techniques such as remote sensing from the space shuttle. A great deal is now known about the brilliant Khmer civilization that flourished among the monsoon forests and rice paddies of mainland Southeast Asia, thanks to the pioneering work of French scholars and the application of modern archaeological techniques such as remote sensing from the space shuttle.",
                 condition: CONDITION.AS_NEW,
                 issaved: SAVEDBOOK.FALSE,
                 availability: AVAILABILITY.TRUE,
                 categories: CATEGORIES.HISTORY,
                 username: "Todd",
-                comment: 'lol that is so funny'
             },
             {
                 id: 2,
@@ -404,6 +403,9 @@ const store = createStore({
         addSearchWord(state, word) {
             state.searchWord = word;
         },
+        addNewBookTobooks(state, book) {
+            state.books.push(book);
+        }
 
     },
     actions: {
@@ -426,6 +428,20 @@ const store = createStore({
         },
         addSearchWord({ commit }, word) {
             commit('addSearchWord', word);
+        },
+        addNewBook({ commit }, book) {
+            const id = this.state.books.length + 1;
+            book.id = id;
+            const condition = book.condition;
+            const category = book.categories;
+            book.condition = CONDITION.condition;
+            book.issaved = SAVEDBOOK.FALSE;
+            book.availability = AVAILABILITY.TRUE;
+            book.categories = CATEGORIES.category;
+            book.username = "Todd";
+            console.log(book);
+
+            // commit('addNewBookTobooks', book);
         }
     }
 })

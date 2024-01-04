@@ -5,6 +5,7 @@ import Login from "../view/Login.vue"
 import Signup from "../view/Signup.vue"
 import Profile from "../view/Profile.vue"
 import SearchResult from "../view/SearchResult.vue"
+import AddBook from "../view/AddBook.vue"
 
 
 const router = createRouter({
@@ -34,6 +35,11 @@ const router = createRouter({
             path: "/search",
             name: "search",
             component: SearchResult,
+        },
+        {
+            path: "/newbook",
+            name: "newbook",
+            component: AddBook,
         },
         {
             path: '/home/:id',

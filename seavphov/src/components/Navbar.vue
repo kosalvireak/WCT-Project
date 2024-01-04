@@ -38,7 +38,7 @@
           </a>
         </li>
         <li class="nav-item me-2 d-sm-flex align-items-sm-center">
-          <a class="nav-link" href="/books/new">
+          <a class="nav-link" href="/newbook">
             <span><i class="fas fa-plus-circle fa-xl"></i></span>
           </a>
         </li>
