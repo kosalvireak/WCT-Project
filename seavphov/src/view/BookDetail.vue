@@ -27,7 +27,7 @@
         <h2 class="d-flex mx-1" style="color: black; font-weight: bold">
           Description
         </h2>
-        <div class="d-flex mx-1 my-1 overflow-auto" style="color: black; font-size: 18px">
+        <div class="d-flex overflow-auto mx-1 my-1" style="color: black; font-size: 18px; width:800px; height:120px;">
           <p>
             {{ book.descriptions }}
           </p>
