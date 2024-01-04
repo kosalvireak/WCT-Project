@@ -1,11 +1,19 @@
 
 
 <template>
-  <div class="d-flex flex-column bg-success-subtle" style="min-height: 100vh">
+  <div
+    class="d-flex flex-column bg-success-subtle m-0 p-0"
+    style="height: 100vh"
+  >
     <div v-if="isLogin">
       <NavBar />
     </div>
-    <main class="container mt-3">
+
+    <main class="container mt-3" v-if="isLogin">
+      <router-view />
+    </main>
+
+    <main class="loginPage h-100 w-100" v-if="!isLogin">
       <router-view />
     </main>
   </div>
@@ -30,4 +38,7 @@ export default {
 </script>
 
 <style>
+.loginPage {
+  background-image: url(/img/login_background.png);
+}
 </style>
