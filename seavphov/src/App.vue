@@ -3,7 +3,7 @@
 <template>
   <div
     class="d-flex flex-column bg-success-subtle m-0 p-0"
-    style="height: 100vh"
+    style="min-height: 100vh"
   >
     <div v-if="isLogin">
       <NavBar />
