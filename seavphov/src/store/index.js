@@ -401,9 +401,8 @@ const store = createStore({
         removeFromsavedbooks(state, id) {
             state.savedbooks = state.savedbooks.filter(element => element !== id);
         },
-        filterBookOnSearch(state, word) {
+        addSearchWord(state, word) {
             state.searchWord = word;
-            // state.books = state.books.filter(book => book.title.toLowerCase().includes(word));
         },
 
     },
@@ -425,8 +424,8 @@ const store = createStore({
             const username = username0[0];
             commit('addLoggedInUser', { username, profile });
         },
-        getSearchWord({ commit }, word) {
-            commit('filterBookOnSearch', word);
+        addSearchWord({ commit }, word) {
+            commit('addSearchWord', word);
         }
     }
 })

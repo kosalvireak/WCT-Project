@@ -52,7 +52,7 @@
           class="bg-seavphov rounded-7 d-flex align-items-center justify-content-center flex-wrap flex-row mt-sm-3 mt-md-0"
           style="height: 150px"
         >
-          <div class="d-flex justify-content-evenly flex-row w-100">
+          <div class="d-flex justify-content-evenly flex-row w-100 mt-3">
             <img
               :src="this.$store.getters.allUsers[0].profile"
               class="profile_image"
@@ -103,21 +103,19 @@
               </h6>
 
               <!-- Map -->
-              <div id="map d-flex w-75 justify-content-center mt-3">
-                <div
-                  class="mapouter d-flex justify-content-center align-item-center mt-3 mx-2"
-                >
-                  <div class="gmap_canvas d-flex">
-                    <iframe
-                      class="rounded-7"
-                      src="https://maps.google.com/maps?q=aeon%20mall%20sensok&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-                      frameborder="0"
-                      scrolling="no"
-                      style="width: 360px; height: 200px"
-                    >
-                    </iframe>
-                  </div>
-                </div>
+              <div
+                class="d-flex justify-content-center align-items-center mt-3 w-100"
+              >
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20492.013362036632!2d104.8721827056667!3d11.576543822376864!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31095181e3acb525%3A0x210670bdf19d7414!2sThe%20Crossroads%20Church%20of%20Cambodia!5e0!3m2!1sen!2sus!4v1704336911651!5m2!1sen!2sus"
+                  width="100%"
+                  height="200"
+                  class="rounded-7"
+                  style="border: 0"
+                  allowfullscreen=""
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
               </div>
             </div>
           </div>
@@ -324,30 +322,5 @@ export default {
   height: 2px;
   background-color: black;
   width: 85%;
-}
-
-.mapouter {
-  position: relative;
-  height: 200px;
-  width: 360px;
-  background: #fff;
-  border-radius: 15px;
-}
-
-.maprouter a {
-  color: #fff !important;
-  position: absolute !important;
-  top: 0 !important;
-  z-index: 0 !important;
-}
-.gmap_canvas {
-  overflow: hidden;
-  height: 400px;
-  width: 460px;
-}
-
-.gmap_canvas iframe {
-  position: relative;
-  z-index: 2;
 }
 </style>

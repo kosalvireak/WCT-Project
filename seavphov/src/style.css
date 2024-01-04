@@ -73,3 +73,7 @@ table {
 .username::first-letter {
 	text-transform: capitalize;
   }
+
+  .text-gray{
+	color: #4F4F4F;
+  }

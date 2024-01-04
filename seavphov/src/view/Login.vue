@@ -9,7 +9,7 @@
         <div class="form-floating mb-3">
           <input
             type="email"
-            class="form-control"
+            class="form-control btn rounded-pill text-start"
             id="email"
             placeholder="name@example.com"
             v-model="email"
@@ -19,7 +19,7 @@
         <div class="form-floating">
           <input
             type="password"
-            class="form-control"
+            class="form-control btn rounded-pill text-start"
             id="password"
             placeholder="Password"
             v-model="password"
@@ -189,6 +189,9 @@ button:hover {
   background-color: #444;
 }
 
+.btn {
+  text-transform: unset !important;
+}
 .no-account {
   margin-top: 15px;
   font-size: 12px;

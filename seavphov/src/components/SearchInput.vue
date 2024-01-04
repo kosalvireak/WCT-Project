@@ -25,7 +25,7 @@ export default {
   },
   methods: {
     SearchBooks() {
-      this.$store.dispatch("getSearchWord", this.inputText);
+      this.$store.dispatch("addSearchWord", this.inputText);
       this.$router.push("/search");
     },
   },

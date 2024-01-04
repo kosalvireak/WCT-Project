@@ -11,9 +11,9 @@
           class="d-flex align-item-center justify-content-center flex-column w-100 bg-white rounded-7 mt-md-5 p-2"
           style="height: 31rem"
         >
-          <h4 class="text-center mb-2 text-black fw-bold">Filter</h4>
+          <h4 class="text-center mb-2 text-gray fw-bold">Filter</h4>
           <div class="category ms-3">
-            <h5 class="fw-bold text-black">Category</h5>
+            <h5 class="fw-bold text-gray">Category</h5>
             <div class="form-check">
               <input
                 class="form-check-input"
@@ -71,7 +71,7 @@
             </div>
           </div>
           <div class="condition ms-3">
-            <h5 class="fw-bold text-black">Condition</h5>
+            <h5 class="fw-bold text-gray">Condition</h5>
             <div class="form-check">
               <input
                 class="form-check-input"
@@ -101,7 +101,7 @@
             </div>
           </div>
           <div class="availability ms-3">
-            <h5 class="fw-bold text-black">Availability</h5>
+            <h5 class="fw-bold text-gray">Availability</h5>
             <div class="form-check">
               <input
                 class="form-check-input"
