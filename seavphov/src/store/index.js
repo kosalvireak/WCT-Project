@@ -27,9 +27,9 @@ const CATEGORIES = {
 }
 
 const store = createStore({
-    // plugins: [createPersistedState({
-    //     storage: window.sessionStorage,
-    // })],
+    plugins: [createPersistedState({
+        storage: window.sessionStorage,
+    })],
     state: {
         users: [
             {
@@ -434,14 +434,12 @@ const store = createStore({
             book.id = id;
             const condition = book.condition;
             const category = book.categories;
-            book.condition = CONDITION.condition;
+            book.condition = CONDITION[`${condition}`];
             book.issaved = SAVEDBOOK.FALSE;
             book.availability = AVAILABILITY.TRUE;
-            book.categories = CATEGORIES.category;
+            book.categories = CATEGORIES[`${category}`];
             book.username = "Todd";
-            console.log(book);
-
-            // commit('addNewBookTobooks', book);
+            commit('addNewBookTobooks', book);
         }
     }
 })
