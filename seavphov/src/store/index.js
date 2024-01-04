@@ -353,6 +353,7 @@ const store = createStore({
         savedbooks: [3, 5, 7, 8, 11, 17, 22],
         mybooks: [2, 4, 9, 12],
         searchWord: "",
+        isLoggedIn: false,
     },
 
     getters: {
@@ -381,6 +382,9 @@ const store = createStore({
         },
         searchWord(state) {
             return state.searchWord;
+        },
+        loggedInState(state) {
+            return state.isLoggedIn;
         }
     },
     mutations: {
@@ -405,6 +409,12 @@ const store = createStore({
         },
         addNewBookTobooks(state, book) {
             state.books.push(book);
+        },
+        loggin(state) {
+            state.isLoggedIn = true;
+        },
+        loggout(state) {
+            state.isLoggedIn = false;
         }
 
     },
@@ -440,7 +450,15 @@ const store = createStore({
             book.categories = CATEGORIES[`${category}`];
             book.username = "Todd";
             commit('addNewBookTobooks', book);
-        }
+        },
+        logUserIn({ commit }) {
+            commit('loggin');
+        },
+        logUserOut({ commit }) {
+            commit('loggout');
+        },
+
+
     }
 })
 

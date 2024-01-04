@@ -98,6 +98,7 @@ export default {
               email: `${this.email}`,
               profile: `${users[i].profile}`,
             });
+            this.$store.dispatch("logUserIn");
             this.$router.push("/home");
           }
           // if password is not match
@@ -131,6 +132,12 @@ export default {
 </script>
   
   <style scoped>
+body {
+  font-family: sans-serif;
+  margin: 0;
+  padding: 0;
+  background-size: cover;
+}
 .main-container {
   font-family: sans-serif;
   margin: 0;

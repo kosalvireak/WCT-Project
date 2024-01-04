@@ -1,24 +1,47 @@
 <template>
-  <div class="Profile container-sm b-1 p-0">
-    <UserMainProfile />
-    <div class="container-sm flex book_options">
-      <div
-        class="flex book_option_child rounded-7"
-        :class="{ 'book_option_child_selected fw-bold': isMyBooksPage }"
-      >
-        <a class="text-black" @click="toggleMyBooksPage('mybooks')">My Books</a>
-      </div>
-      <div
-        class="flex book_option_child rounded-7"
-        :class="{ 'book_option_child_selected fw-bold': !isMyBooksPage }"
-      >
-        <a class="text-black" @click="toggleMyBooksPage('savedbooks')"
-          >Saved Books</a
+  <div class="Profile box" style="height: 100%">
+    <div
+      class="container-sm box b-1 p-0"
+      v-if="this.$store.getters.loggedInState"
+    >
+      <UserMainProfile />
+      <div class="flex book_options">
+        <div
+          class="flex book_option_child rounded-7"
+          :class="{ 'book_option_child_selected fw-bold': isMyBooksPage }"
         >
+          <a class="text-black" @click="toggleMyBooksPage('mybooks')"
+            >My Books</a
+          >
+        </div>
+        <div
+          class="flex book_option_child rounded-7"
+          :class="{ 'book_option_child_selected fw-bold': !isMyBooksPage }"
+        >
+          <a class="text-black" @click="toggleMyBooksPage('savedbooks')"
+            >Saved Books</a
+          >
+        </div>
+      </div>
+      <div>
+        <RenderBook :books="isMyBooksPage ? getMyBooks : getSavedBooks" />
       </div>
     </div>
-    <div>
-      <RenderBook :books="isMyBooksPage ? getMyBooks : getSavedBooks" />
+    <div
+      class="container-sm box d-flex align-items-center justify-content-center"
+      v-else
+    >
+      <div
+        style="height: 30rem; width: 30rem"
+        class="bg-white d-flex align-items-center justify-content-center flex-column"
+      >
+        <h4>You need to Loggin!!</h4>
+        <br />
+        <a href="/login" class="text-gray">
+          <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+          Login
+        </a>
+      </div>
     </div>
   </div>
 </template>
