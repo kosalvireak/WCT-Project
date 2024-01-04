@@ -1,44 +1,24 @@
 <template>
   <div class="mb-3">
-    <div class="d-flex align-items-center justify-content-center flex-column">
+    <div v-if="isLoggedIn" class="d-flex align-items-center justify-content-center flex-column">
       <h4 class="my-4 text-gray fw-bold">Your are adding a new book.</h4>
 
       <form style="width: 100%" v-on:submit.prevent="AddBook()" class="row">
         <div class="col-12 col-md-6">
           <div class="mb-3">
             <label for="title" class="form-label">Title</label>
-            <input
-              type="text"
-              class="form-control"
-              id="title"
-              v-model="book.title"
-            />
+            <input type="text" class="form-control" id="title" v-model="book.title" />
           </div>
           <div class="mb-3">
             <label for="author" class="form-label">Author</label>
-            <input
-              type="text"
-              class="form-control"
-              id="author"
-              v-model="book.author"
-            />
+            <input type="text" class="form-control" id="author" v-model="book.author" />
           </div>
           <div class="mb-3">
             <label for="descriptions" class="form-label">Descriptions</label>
-            <input
-              type="text"
-              class="form-control"
-              id="descriptions"
-              v-model="book.descriptions"
-            />
+            <input type="text" class="form-control" id="descriptions" v-model="book.descriptions" />
           </div>
           <div class="input-group mb-3" style="margin-top: 2rem">
-            <label
-              class="input-group-text"
-              for="condition"
-              style="height: 40px; width: 100px"
-              >Condition</label
-            >
+            <label class="input-group-text" for="condition" style="height: 40px; width: 100px">Condition</label>
             <select class="form-select" id="condition" v-model="book.condition">
               <option value="AS_NEW" selected>as-new</option>
               <option value="GOOD">good</option>
@@ -47,17 +27,8 @@
           </div>
 
           <div class="input-group mb-3" style="margin-top: 2rem">
-            <label
-              class="input-group-text"
-              for="categories"
-              style="height: 40px; width: 100px"
-              >Categories</label
-            >
-            <select
-              class="form-select"
-              id="categories"
-              v-model="book.categories"
-            >
+            <label class="input-group-text" for="categories" style="height: 40px; width: 100px">Categories</label>
+            <select class="form-select" id="categories" v-model="book.categories">
               <option value="FICTION" selected>Fiction</option>
               <option value="NOVEL">Novel</option>
               <option value="TEXT_BOOK">Text-Book</option>
@@ -70,24 +41,12 @@
         <div class="col-12 col-md-6">
           <div class="mb-3">
             <label for="images" class="form-label">Book Image URL</label>
-            <input
-              type="text"
-              class="form-control"
-              id="images"
-              v-model="book.images[0]"
-            />
+            <input type="text" class="form-control" id="images" v-model="book.images[0]" />
           </div>
-          <div
-            class="my-3 mt-3 d-flex align-items-center justify-content-center border border-bdbdbd rounded-7"
-            style="width: 100%; height: 242px"
-          >
-            <img
-              v-if="book.images.length !== 0"
-              :src="book.images"
-              alt="preview_image"
-              class="img-fluid h-100"
-              style="object-fit: cover"
-            />
+          <div class="my-3 mt-3 d-flex align-items-center justify-content-center border border-bdbdbd rounded-7"
+            style="width: 100%; height: 242px">
+            <img v-if="book.images.length !== 0" :src="book.images" alt="preview_image" class="img-fluid h-100"
+              style="object-fit: cover" />
             <div v-else>
               <p class="text-center">
                 Paste a valid image url. <br />
@@ -95,15 +54,21 @@
               </p>
             </div>
           </div>
-
           <button type="submit" class="btn btn-primary mt-1">Submit</button>
+          <div></div>
         </div>
+
       </form>
+    </div>
+    <div v-else>
+      <p>Please Log in to add new book</p>
     </div>
   </div>
 </template>
 
 <script>
+import { nextTick } from 'vue';
+
 export default {
   name: "AddBook",
   data() {
@@ -118,6 +83,11 @@ export default {
       },
     };
   },
+  computed: {
+    isLoggedIn() {
+      return this.$store.getters.loggedInUser.username !== "Anonymous";
+    }
+  },
   methods: {
     AddBook() {
       this.$store.dispatch("addNewBook", this.book);
@@ -126,6 +96,7 @@ export default {
       console.log(id);
       this.$router.push({ path: `/home/${id}` });
     },
+
   },
 };
 </script>
