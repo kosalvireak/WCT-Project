@@ -11,12 +11,15 @@
             <p class="book_title font-Roboto mx-4 mt-3">
               {{ book.title }}
             </p>
-            <p class="book_author mx-4"><u>Author</u>: {{ book.author }}</p>
+            <p class="book_author mx-4 my-2">
+              <u class="fw-bold text-black">Author</u>: {{ book.author }}
+            </p>
             <p class="book_category mx-4 my-2">
-              <u>Category</u>: {{ book.categories }}
+              <u class="fw-bold text-black">Category</u>: {{ book.categories }}
             </p>
             <p class="book_condition mx-4 my-2">
-              <u>Book Condition</u>: {{ book.condition }}
+              <u class="fw-bold text-black">Book Condition</u>:
+              {{ book.condition }}
             </p>
 
             <!-- Bookmark -->
@@ -39,12 +42,15 @@
             </button>
           </div>
         </div>
-        <h2 class="d-flex mx-1" style="color: black; font-weight: bold">
+        <h3
+          class="d-flex mx-1 font-Roboto"
+          style="color: black; font-weight: bold"
+        >
           Description
-        </h2>
+        </h3>
         <div
           class="d-flex overflow-auto mx-1 my-1"
-          style="color: black; font-size: 18px; width: 800px; height: 120px"
+          style="width: 800px; height: 120px"
         >
           <p>
             {{ book.descriptions }}
@@ -233,7 +239,9 @@ export default {
   opacity: 0.75;
   /*set the color you want here*/
 }
-
+u {
+  text-decoration: none;
+}
 .custom-hr {
   height: 2px;
   background-color: black;
