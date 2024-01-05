@@ -117,7 +117,7 @@
         <h4>You need to Login!!</h4>
         <br />
         <a href="/login" class="text-gray">
-          <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
+          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
           Login
         </a>
       </div>

@@ -40,7 +40,7 @@
         <input type="text" name="id" value="<%=book.id%>" class="d-none" />
         <button class="border-0 bg-white">
           <i
-            class="fa-solid fa-bookmark fa-2xl"
+            class="fa-solid fa-bookmark fa-2xl border border-1"
             style="color: yellow"
             v-if="book.issaved"
             @click="toggleIsSaved()"

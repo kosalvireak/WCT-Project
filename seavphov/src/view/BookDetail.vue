@@ -1,7 +1,10 @@
 <template>
   <div class="container-sm">
     <div class="row">
-      <div class="d-flex flex-column flex-wrap col-12 col-md-8 p-0 rounded-7" style="height: 650px">
+      <div
+        class="d-flex flex-column flex-wrap col-12 col-md-8 p-0 rounded-7"
+        style="height: 650px"
+      >
         <div class="d-flex h-70">
           <img :src="book.images" class="book_cover my-3" alt="book cover" />
           <div>
@@ -17,17 +20,32 @@
             </p>
 
             <!-- Bookmark -->
-            <button class="border-0 mx-3 my-1" style="background-color: #d1e7dd">
-              <i class="fa-solid fa-bookmark fa-2xl" style="color: yellow" v-if="book.issaved"
-                @click="toggleIsSaved()"></i>
-              <i class="fa-regular fa-bookmark fa-2xl" style="color: darkgrey" v-else @click="toggleIsSaved()"></i>
+            <button
+              class="border-0 mx-3 my-1"
+              style="background-color: #d1e7dd"
+            >
+              <i
+                class="fa-solid fa-bookmark fa-2xl"
+                style="color: yellow"
+                v-if="book.issaved"
+                @click="toggleIsSaved()"
+              ></i>
+              <i
+                class="fa-regular fa-bookmark fa-2xl"
+                style="color: darkgrey"
+                v-else
+                @click="toggleIsSaved()"
+              ></i>
             </button>
           </div>
         </div>
         <h2 class="d-flex mx-1" style="color: black; font-weight: bold">
           Description
         </h2>
-        <div class="d-flex overflow-auto mx-1 my-1" style="color: black; font-size: 18px; width:800px; height:120px;">
+        <div
+          class="d-flex overflow-auto mx-1 my-1"
+          style="color: black; font-size: 18px; width: 800px; height: 120px"
+        >
           <p>
             {{ book.descriptions }}
           </p>
@@ -37,25 +55,39 @@
       <!-- Right Container -->
       <div class="col-12 p-0 col-md-4 ps-md-3 d-flex flex-column rounded-7">
         <div
-          class="bg-seavphov rounded-7 d-flex align-items-center justify-content-center flex-wrap flex-row mt-sm-3 mt-md-0"
-          style="height: 150px; background-color:#edf8f5;">
+          class="bg-seavphov rounded-7 d-flex align-items-center justify-content-center flex-wrap flex-row mt-sm-3 mt-md-0 bg-seavphov-light"
+          style="height: 150px"
+        >
           <div class="d-flex justify-content-evenly flex-row">
-            <img src="/img/profile.JPG?url" class="profile_image" alt="profile_img" />
+            <img
+              src="/img/profile.JPG?url"
+              class="profile_image"
+              alt="profile_img"
+            />
             <div class="d-flex flex-column justify-content-evenly mx-2 my-1">
               <h5 class="font-Roboto">Khoeun Kosalvireak</h5>
               <h6>Information Technology Engineering</h6>
-              <p class="text-active" style="color:">Last Active: <u>10 months ago</u></p>
+              <p class="text-active" style="color: ">
+                Last Active: <u>10 months ago</u>
+              </p>
             </div>
           </div>
         </div>
 
         <!-- User Contact -->
-        <div class="rounded-7 d-flex flex-wrap flex-column mt-3" style="height: 484px; background-color:#edf8f5">
-          <div class="d-flex flex-column w-100 ">
+        <div
+          class="rounded-7 d-flex flex-wrap flex-column mt-3 bg-seavphov-light"
+          style="height: 484px"
+        >
+          <div class="d-flex flex-column w-100">
             <h4 class="mx-3 mt-3 font-Roboto">Contact</h4>
             <div class="d-flex flex-row my-2 mx-3">
-              <img src="/img/cellcard.png?url" class="mobile_image mx-1" alt="mobile_img"
-                style="width: 28px; height: 28px; object-fit: cover" />
+              <img
+                src="/img/cellcard.png?url"
+                class="mobile_image mx-1"
+                alt="mobile_img"
+                style="width: 28px; height: 28px; object-fit: cover"
+              />
               <h5 class="ml-5" style="font-size: 18px; margin-top: 2.5px">
                 012 123 890
               </h5>
@@ -78,11 +110,17 @@
 
               <!-- Map -->
               <div id="map d-flex w-75 justify-content-center mt-3">
-                <div class="mapouter d-flex justify-content-center align-item-center mt-3 mx-2">
+                <div
+                  class="mapouter d-flex justify-content-center align-item-center mt-3 mx-2"
+                >
                   <div class="gmap_canvas d-flex">
-                    <iframe class="rounded-7"
+                    <iframe
+                      class="rounded-7"
                       src="https://maps.google.com/maps?q=aeon%20mall%20sensok&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-                      frameborder="0" scrolling="no" style="width: 360px; height: 200px">
+                      frameborder="0"
+                      scrolling="no"
+                      style="width: 360px; height: 200px"
+                    >
                     </iframe>
                   </div>
                 </div>
@@ -93,7 +131,7 @@
       </div>
     </div>
     <div class="RelatedBooks mt-5">
-      <hr>
+      <hr />
       <h5 class="fw-bold">Related Books</h5>
       <RenderBook :books="relatedBooks" />
     </div>
@@ -143,7 +181,6 @@ export default {
   width: auto;
 }
 
-
 .book_cover_container {
   height: 70%;
   display: flex;
@@ -168,7 +205,7 @@ export default {
   height: 90px;
   border-radius: 9999px;
   object-fit: cover;
-  border: 3px solid #9FB97F;
+  border: 3px solid #9fb97f;
 }
 
 .text-active {
@@ -189,7 +226,7 @@ export default {
 .btn:focus,
 .btn:active,
 .btn.active,
-.open>.dropdown-toggle.btn {
+.open > .dropdown-toggle.btn {
   color: black;
   background-color: #588157;
   border-color: black;

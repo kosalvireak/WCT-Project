@@ -5,13 +5,15 @@
     </div>
     <div class="mt-3 row">
       <div
-        class="d-flex align-item-center justify-content-center col-xl-3 col-md-5 col-sm-12"
+        class="d-flex align-item-center justify-content-center col-xl-3 col-md-5 col-sm-12 mt-md-2"
       >
         <div
-          class="d-flex align-item-center justify-content-center flex-column w-100 bg-white rounded-7 mt-md-5 p-2"
+          class="d-flex align-item-center justify-content-center flex-column w-100 rounded-7 mt-md-5 p-2 bg-seavphov-light"
           style="height: 31rem"
         >
-          <h4 class="text-center mb-2 text-gray fw-bold">Filter</h4>
+          <h4 class="text-center mb-2 text-gray fw-bold text-seavphov">
+            Filter
+          </h4>
           <div class="category ms-3">
             <h5 class="fw-bold text-gray">Category</h5>
             <div class="form-check">
@@ -211,4 +213,7 @@ export default {
 </script>
   
   <style>
+label {
+  font-size: 0.9rem;
+}
 </style>

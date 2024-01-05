@@ -1,7 +1,7 @@
 <template>
   <nav class="navbar navbar-expand-md bg-seavphov p-0">
     <div class="container-fluid">
-      <a class="navbar-brand" href="#"
+      <a class="navbar-brand" href="/home"
         ><img
           src="/img/book.png"
           alt="book logo"
@@ -20,12 +20,13 @@
       >
         <span class="navbar-toggler-icon"></span>
       </button>
+
       <div
         class="collapse navbar-collapse d-flex justify-content-between"
         id="navbarSupportedContent"
       >
         <ul
-          class="navbar-nav my-0 NavUserInfo"
+          class="navbar-nav my-0 NavUserInfo justify-content-end"
           style="--bs-scroll-height: 100px"
         >
           <li class="nav-item me-2 me-lg-1">
@@ -49,7 +50,7 @@
           <!-- Chat dropdown -->
           <li
             class="nav-item dropdown me-2 d-flex align-items-sm-center"
-            v-if="!this.$store.getters.loggedInState"
+            v-if="this.$store.getters.loggedInState"
           >
             <a
               class="nav-link dropdown-toggle hidden-arrow"
@@ -64,7 +65,7 @@
                 >2</span
               >
             </a>
-            <ul class="dropdown-menu" style="left: -350px">
+            <ul class="dropdown-menu ChatDropdown">
               <ChatDropdown />
             </ul>
           </li>
@@ -72,7 +73,7 @@
           <!-- Notification dropdown -->
           <li
             class="nav-item dropdown me-3 d-flex align-items-sm-center"
-            v-if="!this.$store.getters.loggedInState"
+            v-if="this.$store.getters.loggedInState"
           >
             <a
               class="nav-link dropdown-toggle hidden-arrow"
@@ -86,7 +87,7 @@
                 >12</span
               >
             </a>
-            <ul class="dropdown-menu" style="left: -350px">
+            <ul class="dropdown-menu NotificationDropdown">
               <NotificationDropdown />
             </ul>
           </li>
@@ -99,6 +100,14 @@
             </a>
           </li>
         </ul>
+        <a class="navbar-brand-center" href="/home"
+          ><img
+            src="/img/book.png"
+            alt="book logo"
+            srcset=""
+            class="img-fluid"
+            style="height: 45px"
+        /></a>
         <div class="SeachInput">
           <SearchInput class="d-flex" role="search" />
         </div>
@@ -133,16 +142,37 @@ export default {
   width: 38px;
   object-fit: cover;
 }
+.navbar-brand {
+  display: none;
+}
+
 .SeachInput {
-  width: 20rem;
+  min-width: 20rem;
   order: -1;
   margin-bottom: 0px;
 }
+.navbar-brand-center {
+  order: 1;
+}
 .NavUserInfo {
+  min-width: 20rem;
   width: fit-content;
+  order: 2;
 }
 
+.ChatDropdown {
+  left: -342px;
+}
+.NotificationDropdown {
+  left: -360px;
+}
 @media (max-width: 768px) {
+  .navbar-brand {
+    display: block;
+  }
+  .navbar-brand-center {
+    display: none;
+  }
   .SeachInput {
     width: 100%;
     order: -1;
@@ -152,6 +182,18 @@ export default {
     width: 100%;
     flex-direction: row;
     justify-content: space-evenly;
+  }
+  .ChatDropdown {
+    left: -220px;
+  }
+  .NotificationDropdown {
+    left: -330px;
+  }
+}
+
+@media (max-width: 576px) {
+  .NotificationDropdown {
+    left: -285px;
   }
 }
 </style>

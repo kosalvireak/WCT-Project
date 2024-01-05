@@ -64,7 +64,11 @@ table {
 }
 
 .bg-seavphov{
-  background-color: #9FB97F;
+  background-color: #9FB97F !important;
+}
+
+.bg-seavphov-light{
+	background-color: #edf8f5 !important;
 }
 .font-Roboto{
 	font-family: 'Roboto Slab', serif;
@@ -75,5 +79,9 @@ table {
   }
 
   .text-gray{
-	color: #4F4F4F;
+	color: #4F4F4F !important;
+  }
+
+  .text-seavphov{
+	color:#5c836e !important;
   }
