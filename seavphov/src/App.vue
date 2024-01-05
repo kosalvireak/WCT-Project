@@ -40,5 +40,6 @@ export default {
 <style>
 .loginPage {
   background-image: url(/img/login_background.png);
+  background-size: cover;
 }
 </style>

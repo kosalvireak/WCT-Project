@@ -1,7 +1,7 @@
 <template>
   <div class="main-container bg-seavphov">
     <div class="d-flex align-items-center justify-content-center logo">
-      <img src="/img/book.png" alt="booklogo" class="logo" />
+      <img src="/img/book.png" alt="booklogo" class="logoimg" />
     </div>
     <div class="container">
       <h1>Log In</h1>
@@ -132,41 +132,34 @@ export default {
 </script>
   
   <style scoped>
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  background-size: cover;
-}
-.main-container {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  background-size: cover;
-}
-
 .main-container {
   width: 900px;
   margin: 100px auto;
-  padding: 30px;
+  padding: 50px;
   background-color: #fff;
   border-radius: 30px;
   display: flex;
 }
 
-.logo,
 .container {
-  flex: 1;
+  /* flex: 1; */
+  padding: 10px;
+  margin: auto;
 }
 
 .logo {
-  width: 250px;
+  width: 400px;
   margin-bottom: 10px;
   text-align: center;
 }
 
+.logoimg {
+  width: 300px;
+}
+
 h1 {
   font-size: 50px;
+  font-weight: bold;
   margin-bottom: 25px;
   color: #5c836e;
   text-align: center;
