@@ -7,49 +7,65 @@
       <h1>Sign Up</h1>
       <form v-on:submit.prevent="Signup()">
         <div class="form-floating mb-3">
-        <input
+          <input
             type="email"
-            class="form-control btn rounded-pill text-start " 
+            class="form-control btn rounded-pill text-start"
             id="email"
             placeholder="name@example.com"
             v-model="email"
-            style="background-color: #D9D9D9;"
+            style="background-color: #d9d9d9"
+            @focus="toggleLabel('email', true)"
+            @blur="toggleLabel('email', false)"
           />
-          <label for="email" style="text-align: center; display: block; margin: 0 auto;">Email address</label>
+          <label for="email" :class="{ 'special-style': toggleEmail }"
+            >Email address</label
+          >
         </div>
         <div class="form-floating password mb-3">
-        <input
+          <input
             type="password"
-            class="form-control btn rounded-pill text-start " 
+            class="form-control btn rounded-pill text-start"
             id="password"
             placeholder="password"
             v-model="password"
-            style="background-color: #D9D9D9;"
+            style="background-color: #d9d9d9"
+            @focus="toggleLabel('password', true)"
+            @blur="toggleLabel('password', false)"
           />
-          <label for="password" style="text-align: center; display: block; margin: 0 auto;">Password</label>
+          <label for="password" :class="{ 'special-style': togglePassword }"
+            >Password</label
+          >
         </div>
         <div class="form-floating mb-3">
-        <input
+          <input
             type="confirmpassword"
-            class="form-control btn rounded-pill text-start " 
+            class="form-control btn rounded-pill text-start"
             id="confirmpassword"
             placeholder="password"
             v-model="confirmpassword"
-            style="background-color: #D9D9D9;"
+            style="background-color: #d9d9d9"
+            @focus="toggleLabel('confirmpassword', true)"
+            @blur="toggleLabel('confirmpassword', false)"
           />
-          <label for="confirmpassword" style="text-align: center; display: block; margin: 0 auto;">Confirm Password</label>
+          <label
+            for="confirmpassword"
+            :class="{ 'special-style': toggleConfirmPassword }"
+            >Confirm Password</label
+          >
         </div>
         <div class="row my-3">
           <div class="col d-flex justify-content-center">
             <!-- Checkbox -->
             <div class="form-check">
-              <input 
-                class="form-check-input" 
-                type="checkbox" 
-                value="" id="form1Example3" 
-                checked 
+              <input
+                class="form-check-input"
+                type="checkbox"
+                value=""
+                id="form1Example3"
+                checked
                 v-model="isShowPassword"
-                @click="showPassword" />
+                @click="showPassword"
+              />
               <label class="form-check-label" for="form1Example3">
                 Show password
               </label>
@@ -78,53 +94,75 @@ export default {
       Error: false,
       errorMessage: "",
       isShowPassword: false,
+      toggleEmail: false,
+      togglePassword: false,
+      toggleConfirmPassword: false,
     };
   },
   methods: {
     Signup() {
-      console.log("here", this.email, this.password, this.confirmpassword)
+      console.log("here", this.email, this.password, this.confirmpassword);
       // if both input are empty
-      if (this.email.length == 0 || this.password.length == 0 || this.confirmpassword.length == 0) {
-
+      if (
+        this.email.length == 0 ||
+        this.password.length == 0 ||
+        this.confirmpassword.length == 0
+      ) {
         this.Error = true;
         this.errorMessage = "Email or password cannot be empty!";
       }
       // if both input are not empty
       else {
-        console.log("here", this.email, this.password, this.confirmpassword)
+        console.log("here", this.email, this.password, this.confirmpassword);
         const users = this.$store.getters.allUsers;
         // if found in users array, the index i will return
         const i = users.findIndex((u) => u.email === this.email);
         if (i > -1) {
           // if email is available
           this.Error = true;
-          this.errorMessage = "User already exists"
-
+          this.errorMessage = "User already exists";
         }
         // else user not found in users array
         else {
           // if password is more than 8 characters
           if (this.password.length >= 8) {
-
             // if password is the same as confirm password
             if (this.password == this.confirmpassword) {
               this.$store.dispatch("addLoggedInUser", {
                 email: `${this.email}`,
-                profile: "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
+                profile:
+                  "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
               });
               this.$store.dispatch("logUserIn");
               this.$router.push("/home");
-            }
-            else {
+            } else {
               this.Error = true;
-              this.errorMessage = "Password & confirm password does not match!"
+              this.errorMessage = "Password & confirm password does not match!";
             }
-          }
-          else {
+          } else {
             this.Error = true;
-            this.errorMessage = "Password must be 8 characters or more"
+            this.errorMessage = "Password must be 8 characters or more";
           }
         }
+      }
+    },
+    toggleLabel(input, bool) {
+      if (input == "email") {
+        this.toggleEmail = bool;
+      } else if (input == "password") {
+        this.togglePassword = bool;
+      } else if (input == "confirmpassword") {
+        this.toggleConfirmPassword = bool;
+      }
+      this.toggleLabelIfInputNotEmpty();
+    },
+    toggleLabelIfInputNotEmpty() {
+      if (this.email.length !== 0) {
+        this.toggleEmail = true;
+      } else if (this.password.length !== 0) {
+        this.togglePassword = true;
+      } else if (this.confirmpassword.length !== 0) {
+        this.toggleConfirmPassword = true;
       }
     },
     showPassword() {
@@ -177,6 +215,17 @@ form {
 
 label {
   margin-bottom: 5px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+label::after {
+  background-color: #d9d9d9 !important;
+  /* width: 478px !important; */
+}
+
+.special-style {
+  width: 478px !important;
 }
 
 button {

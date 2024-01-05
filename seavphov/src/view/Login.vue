@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container ">
+  <div class="main-container">
     <div class="d-flex align-items-center justify-content-center logo">
       <img src="/img/book.png" alt="booklogo" class="logoimg" />
     </div>
@@ -7,15 +7,19 @@
       <h1>Log In</h1>
       <form v-on:submit.prevent="Login()">
         <div class="form-floating mb-3">
-        <input
+          <input
             type="email"
-            class="form-control btn rounded-pill text-start " 
+            class="form-control btn rounded-pill text-start"
             id="email"
             placeholder="name@example.com"
             v-model="email"
-            style="background-color: #D9D9D9;"
+            style="background-color: #d9d9d9"
+            @focus="toggleLabel('email', true)"
+            @blur="toggleLabel('email', false)"
           />
-          <label for="email" style="text-align: center; display: block; margin: 0 auto;">Email address</label>
+          <label for="email" :class="{ 'special-style': toggleEmail }"
+            >Email address</label
+          >
         </div>
         <div class="form-floating">
           <input
@@ -24,9 +28,13 @@
             id="password"
             placeholder="Password"
             v-model="password"
-            style="background-color: #D9D9D9;"
+            style="background-color: #d9d9d9"
+            @focus="toggleLabel('password', true)"
+            @blur="toggleLabel('password', false)"
           />
-          <label for="password" style="text-align: center; display: block; margin: 0 auto;">Password</label>
+          <label for="password" :class="{ 'special-style': togglePassword }"
+            >Password</label
+          >
         </div>
 
         <!-- 2 column grid layout for inline styling -->
@@ -78,6 +86,8 @@ export default {
       Error: false,
       errorMessage: "",
       isShowPassword: false,
+      toggleEmail: false,
+      togglePassword: false,
     };
   },
   methods: {
@@ -119,6 +129,21 @@ export default {
         this.errorMessage = "Incorrect email or password!";
       }
     },
+    toggleLabel(input, bool) {
+      if (input == "email") {
+        this.toggleEmail = bool;
+      } else if (input == "password") {
+        this.togglePassword = bool;
+      }
+      this.toggleLabelIfInputNotEmpty();
+    },
+    toggleLabelIfInputNotEmpty() {
+      if (this.email.length !== 0) {
+        this.toggleEmail = true;
+      } else if (this.password.length !== 0) {
+        this.togglePassword = true;
+      }
+    },
     showPassword() {
       if (this.isShowPassword) {
         password.type = "password";
@@ -143,7 +168,6 @@ export default {
   display: flex;
 }
 
-
 .logo {
   width: 700px;
   text-align: center;
@@ -166,12 +190,20 @@ form {
   text-align: center;
 }
 
-
-
 label {
   margin-bottom: 5px;
+  text-align: center;
+  display: block;
+  margin: 0 auto;
+}
+label::after {
+  background-color: #d9d9d9 !important;
+  /* width: 478px !important; */
 }
 
+.special-style {
+  width: 478px !important;
+}
 button {
   text-align: center;
   background-color: #5c836e;
