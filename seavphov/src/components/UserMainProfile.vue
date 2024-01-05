@@ -172,7 +172,7 @@ a:link {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 576px) {
   .cover_container {
     width: 31.25rem;
   }

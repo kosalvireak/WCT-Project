@@ -35,7 +35,7 @@
         style="height: 30rem; width: 30rem"
         class="bg-white d-flex align-items-center justify-content-center flex-column"
       >
-        <h4>You need to Loggin!!</h4>
+        <h4>You need to Login!!</h4>
         <br />
         <a href="/login" class="text-gray">
           <i class="fa fa-arrow-circle-left" aria-hidden="true"></i>
@@ -122,7 +122,7 @@ a:hover {
   }
 }
 
-@media only screen and (max-width: 600px) {
+@media only screen and (max-width: 576px) {
   .book_options {
     flex-direction: column;
     width: 500px;

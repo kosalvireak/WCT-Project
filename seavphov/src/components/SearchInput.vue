@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex nav_container rounded-7">
+  <div class="SearchInput rounded-7">
     <form
       class="rounded-7 d-flex justify-content-between"
       v-on:submit.prevent="SearchBooks()"
@@ -18,6 +18,7 @@
 
 <script>
 export default {
+  name: "SearchInput",
   data() {
     return {
       inputText: "",
@@ -34,19 +35,19 @@ export default {
 
 
 <style scoped>
-.nav_container {
+.SearchInput {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: stretch;
-  width: 20rem;
+  width: 100%;
   background-color: white;
 }
 
 input[type="text"] {
   border: none;
   background: transparent;
-  width: 18rem;
+  width: 85%;
   margin: 0;
   padding: 7px 8px;
   font-size: 14px;
@@ -62,7 +63,7 @@ input[type="text"]::placeholder {
 button[type="submit"] {
   text-indent: -999px;
   overflow: hidden;
-  width: 2rem;
+  width: 15%;
   padding: 0;
   margin: 0;
   border: 1px solid transparent;
