@@ -7,30 +7,38 @@
       <h1>Sign Up</h1>
       <form v-on:submit.prevent="Signup()">
         <div class="form-floating mb-3">
-        <input 
-          type="email" 
-          id="email" required v-model="email" 
-          class="form-control btn rounded-pill text-start " 
-          style="background-color: #D9D9D9;"/>
+        <input
+            type="email"
+            class="form-control btn rounded-pill text-start " 
+            id="email"
+            placeholder="name@example.com"
+            v-model="email"
+            style="background-color: #D9D9D9;"
+          />
           <label for="email" style="text-align: center; display: block; margin: 0 auto;">Email address</label>
         </div>
-        <div class="form-floating password mb-3"> 
-          <input  
-            type="password" 
-            id="password" required v-model="password" 
-            class="form-control btn rouded-pill text-start"
-            style="background-color: #D9D9D9;"/>
-            <label for="password" style="text-align: center; display: block; margin: 0 auto;">Password:</label>
+        <div class="form-floating password mb-3">
+        <input
+            type="password"
+            class="form-control btn rounded-pill text-start " 
+            id="password"
+            placeholder="password"
+            v-model="password"
+            style="background-color: #D9D9D9;"
+          />
+          <label for="password" style="text-align: center; display: block; margin: 0 auto;">Password</label>
         </div>
-        <div class="form-floating confirmpassword mb-3"> 
-          <input  
-            type="password" 
-            id="confirmpassword" name="confirmpassword" required v-model="confirmpassword" 
-            class="form-control btn rouded-pill text-start"
-            style="background-color: #D9D9D9;"/>
-            <label for="confirmpassword" style="text-align: center; display: block; margin: 0 auto;">Confirm Password:</label>
+        <div class="form-floating mb-3">
+        <input
+            type="confirmpassword"
+            class="form-control btn rounded-pill text-start " 
+            id="confirmpassword"
+            placeholder="password"
+            v-model="confirmpassword"
+            style="background-color: #D9D9D9;"
+          />
+          <label for="confirmpassword" style="text-align: center; display: block; margin: 0 auto;">Confirm Password</label>
         </div>
-  
         <div class="row my-3">
           <div class="col d-flex justify-content-center">
             <!-- Checkbox -->
@@ -170,15 +178,6 @@ form {
 label {
   margin-bottom: 5px;
 }
-/* 
-input[type="text"],
-input[type="password"] {
-  width: 100%;
-  padding: 10px;
-  color: #d9d9d9;
-  border-radius: 30px;
-  margin-bottom: 15px;
-} */
 
 button {
   text-align: center;
