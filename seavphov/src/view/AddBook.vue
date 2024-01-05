@@ -110,26 +110,16 @@
       class="container-sm box d-flex align-items-center justify-content-center"
       v-else
     >
-      <div
-        style="height: 30rem; width: 30rem"
-        class="bg-white d-flex align-items-center justify-content-center flex-column"
-      >
-        <h4>You need to Login!!</h4>
-        <br />
-        <a href="/login" class="text-gray">
-          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-          Login
-        </a>
-      </div>
+      <NoLoggin />
     </div>
   </div>
 </template>
 
 <script>
-import { nextTick } from "vue";
-
+import NoLoggin from "../components/NoLoggin.vue";
 export default {
   name: "AddBook",
+  components: { NoLoggin },
   data() {
     return {
       book: {

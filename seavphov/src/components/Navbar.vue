@@ -42,7 +42,10 @@
               }}</strong>
             </a>
           </li>
-          <li class="nav-item me-2 d-flex align-items-sm-center">
+          <li
+            class="nav-item me-2 d-flex align-items-sm-center"
+            v-if="this.$store.getters.loggedInState"
+          >
             <a class="nav-link" href="/newbook">
               <span><i class="fas fa-plus-circle fa-xl"></i></span>
             </a>

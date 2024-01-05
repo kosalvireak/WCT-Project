@@ -31,17 +31,7 @@
       class="container-sm box d-flex align-items-center justify-content-center"
       v-else
     >
-      <div
-        style="height: 30rem; width: 30rem"
-        class="bg-white d-flex align-items-center justify-content-center flex-column"
-      >
-        <h4>You need to Login!!</h4>
-        <br />
-        <a href="/login" class="text-gray">
-          <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
-          Login
-        </a>
-      </div>
+      <NoLoggin />
     </div>
   </div>
 </template>
@@ -49,9 +39,10 @@
   <script>
 import RenderBook from "../components/RenderBook.vue";
 import UserMainProfile from "../components/UserMainProfile.vue";
+import NoLoggin from "../components/NoLoggin.vue";
 export default {
   name: "Profile",
-  components: { UserMainProfile, RenderBook },
+  components: { UserMainProfile, RenderBook, NoLoggin },
   data() {
     return {
       isMyBooksPage: true,
