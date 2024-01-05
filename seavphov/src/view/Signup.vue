@@ -1,22 +1,46 @@
 <template>
   <div class="main-container">
-    <div class="logo">
-      <img src="/img/book.png" alt="booklogo" class="logo" />
+    <div class="d-flex align-items-center justify-content-center logo">
+      <img src="/img/book.png" alt="booklogo" class="logoimg" />
     </div>
     <div class="container">
       <h1>Sign Up</h1>
       <form v-on:submit.prevent="Signup()">
-        <label for="email">Email:</label>
-        <input type="text" id="email" name="email" required v-model="email" />
-        <label for="password">Password:</label>
-        <input type="password" id="password" name="password" required v-model="password" />
-        <label for="confirmpassword">Confirm Password:</label>
-        <input type="password" id="confirmpassword" name="confirmpassword" required v-model="confirmpassword" />
+        <div class="form-floating mb-3">
+        <input 
+          type="email" 
+          id="email" required v-model="email" 
+          class="form-control btn rounded-pill text-start " 
+          style="background-color: #D9D9D9;"/>
+          <label for="email" style="text-align: center; display: block; margin: 0 auto;">Email address</label>
+        </div>
+        <div class="form-floating password mb-3"> 
+          <input  
+            type="password" 
+            id="password" required v-model="password" 
+            class="form-control btn rouded-pill text-start"
+            style="background-color: #D9D9D9;"/>
+            <label for="password" style="text-align: center; display: block; margin: 0 auto;">Password:</label>
+        </div>
+        <div class="form-floating confirmpassword mb-3"> 
+          <input  
+            type="password" 
+            id="confirmpassword" name="confirmpassword" required v-model="confirmpassword" 
+            class="form-control btn rouded-pill text-start"
+            style="background-color: #D9D9D9;"/>
+            <label for="confirmpassword" style="text-align: center; display: block; margin: 0 auto;">Confirm Password:</label>
+        </div>
+  
         <div class="row my-3">
           <div class="col d-flex justify-content-center">
             <!-- Checkbox -->
             <div class="form-check">
-              <input class="form-check-input" type="checkbox" value="" id="form1Example3" checked v-model="isShowPassword"
+              <input 
+                class="form-check-input" 
+                type="checkbox" 
+                value="" id="form1Example3" 
+                checked 
+                v-model="isShowPassword"
                 @click="showPassword" />
               <label class="form-check-label" for="form1Example3">
                 Show password
@@ -28,9 +52,9 @@
         <button type="submit" class="btn btn-primary btn-block">Sign up</button>
       </form>
 
-      <p class="no-account">
+      <div class="no-account">
         Already have an account? <a href="/login">Login</a>
-      </p>
+      </div>
     </div>
   </div>
 </template>
@@ -112,60 +136,60 @@ export default {
 </script>
   
 <style scoped>
-body {
-  font-family: sans-serif;
-  margin: 0;
-  padding: 0;
-  background-size: cover;
-}
-
 .main-container {
   width: 900px;
   margin: 100px auto;
-  padding: 30px;
+  padding: 50px;
   background-color: #fff;
   border-radius: 30px;
-  text-align: right;
+  display: flex;
 }
 
 .logo {
-  width: 250px;
-  margin-bottom: 10px;
-  text-align: left;
+  width: 700px;
+  text-align: center;
+}
+
+.logoimg {
+  width: 300px;
 }
 
 h1 {
   font-size: 50px;
-  margin-bottom: 20px;
+  font-weight: bold;
+  margin-bottom: 25px;
   color: #5c836e;
+  text-align: center;
 }
 
 form {
   width: 100%;
+  text-align: center;
 }
 
 label {
-  display: block;
   margin-bottom: 5px;
-  font-weight: bold;
 }
-
+/* 
 input[type="text"],
 input[type="password"] {
-  width: 30%;
+  width: 100%;
   padding: 10px;
   color: #d9d9d9;
   border-radius: 30px;
   margin-bottom: 15px;
-}
+} */
 
 button {
+  text-align: center;
   background-color: #5c836e;
   color: #fff;
-  padding: 15px 100px;
-  border: none;
-  border-radius: 30px;
+  padding: 7px 70px;
+  width: 300px;
+  margin: auto;
+  border-radius: 15px;
   font-weight: bold;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -173,10 +197,15 @@ button:hover {
   background-color: #444;
 }
 
+.btn {
+  text-transform: unset !important;
+}
+
 .no-account {
   margin-top: 15px;
   font-size: 12px;
   color: #666;
+  text-align: center;
 }
 
 a {

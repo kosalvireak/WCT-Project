@@ -1,5 +1,5 @@
 <template>
-  <div class="main-container bg-seavphov">
+  <div class="main-container ">
     <div class="d-flex align-items-center justify-content-center logo">
       <img src="/img/book.png" alt="booklogo" class="logoimg" />
     </div>
@@ -7,14 +7,15 @@
       <h1>Log In</h1>
       <form v-on:submit.prevent="Login()">
         <div class="form-floating mb-3">
-          <input
+        <input
             type="email"
-            class="form-control btn rounded-pill text-start"
+            class="form-control btn rounded-pill text-start " 
             id="email"
             placeholder="name@example.com"
             v-model="email"
+            style="background-color: #D9D9D9;"
           />
-          <label for="email">Email address</label>
+          <label for="email" style="text-align: center; display: block; margin: 0 auto;">Email address</label>
         </div>
         <div class="form-floating">
           <input
@@ -23,8 +24,9 @@
             id="password"
             placeholder="Password"
             v-model="password"
+            style="background-color: #D9D9D9;"
           />
-          <label for="password">Password</label>
+          <label for="password" style="text-align: center; display: block; margin: 0 auto;">Password</label>
         </div>
 
         <!-- 2 column grid layout for inline styling -->
@@ -141,15 +143,9 @@ export default {
   display: flex;
 }
 
-.container {
-  /* flex: 1; */
-  padding: 10px;
-  margin: auto;
-}
 
 .logo {
-  width: 400px;
-  margin-bottom: 10px;
+  width: 700px;
   text-align: center;
 }
 
@@ -170,8 +166,9 @@ form {
   text-align: center;
 }
 
+
+
 label {
-  display: block;
   margin-bottom: 5px;
 }
 
@@ -179,9 +176,12 @@ button {
   text-align: center;
   background-color: #5c836e;
   color: #fff;
-  padding: 15px 100px;
-  border-radius: 30px;
+  padding: 7px 70px;
+  width: 300px;
+  margin: auto;
+  border-radius: 15px;
   font-weight: bold;
+  font-size: 25px;
   cursor: pointer;
 }
 
@@ -192,6 +192,7 @@ button:hover {
 .btn {
   text-transform: unset !important;
 }
+
 .no-account {
   margin-top: 15px;
   font-size: 12px;
