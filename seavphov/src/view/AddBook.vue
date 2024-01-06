@@ -1,6 +1,13 @@
 <template>
   <div class="mb-3">
-    <a href="/home" class="text-gray">
+    <a
+      @click="
+        () => {
+          this.$router.push('/home');
+        }
+      "
+      class="text-gray"
+    >
       <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to home
     </a>
     <div
@@ -101,7 +108,7 @@
               </p>
             </div>
           </div>
-          <button type="submit" class="btn btn-primary mt-1">Submit</button>
+          <button type="submit" class="btn btn-primary mt-1">Add Book</button>
           <div></div>
         </div>
       </form>

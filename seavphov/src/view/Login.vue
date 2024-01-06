@@ -1,77 +1,95 @@
 <template>
   <div class="main-container">
-    <div class="d-flex align-items-center justify-content-center logo">
-      <img src="/img/book.png" alt="booklogo" class="logoimg" />
-    </div>
-    <div class="container">
-      <h1>Log In</h1>
-      <form v-on:submit.prevent="Login()">
-        <div class="form-floating mb-3">
-          <input
-            type="email"
-            class="form-control btn rounded-pill text-start"
-            id="email"
-            placeholder="name@example.com"
-            v-model="email"
-            style="background-color: #d9d9d9"
-            @focus="toggleLabel('email', true)"
-            @blur="toggleLabel('email', false)"
-          />
-          <label for="email" :class="{ 'special-style': toggleEmail }"
-            >Email address</label
-          >
-        </div>
-        <div class="form-floating">
-          <input
-            type="password"
-            class="form-control btn rounded-pill text-start"
-            id="password"
-            placeholder="Password"
-            v-model="password"
-            style="background-color: #d9d9d9"
-            @focus="toggleLabel('password', true)"
-            @blur="toggleLabel('password', false)"
-          />
-          <label for="password" :class="{ 'special-style': togglePassword }"
-            >Password</label
-          >
-        </div>
+    <div class="row">
+      <div
+        class="d-flex align-items-center justify-content-center logo col-md-6 col-sm-12"
+      >
+        <img src="/img/book.png" alt="booklogo" class="logoimg img-fluid" />
+      </div>
+      <div class="container col-md-6 col-sm-12">
+        <h1>Log In</h1>
+        <form v-on:submit.prevent="Login()">
+          <div class="form-floating mb-3">
+            <input
+              type="email"
+              class="form-control btn rounded-pill text-start"
+              id="email"
+              placeholder="name@example.com"
+              v-model="email"
+              style="background-color: #d9d9d9"
+              @focus="toggleLabel('email', true)"
+              @blur="toggleLabel('email', false)"
+            />
+            <label for="email" :class="{ 'special-style': toggleEmail }"
+              >Email address</label
+            >
+          </div>
+          <div class="form-floating">
+            <input
+              type="password"
+              class="form-control btn rounded-pill text-start"
+              id="password"
+              placeholder="Password"
+              v-model="password"
+              style="background-color: #d9d9d9"
+              @focus="toggleLabel('password', true)"
+              @blur="toggleLabel('password', false)"
+            />
+            <label for="password" :class="{ 'special-style': togglePassword }"
+              >Password</label
+            >
+          </div>
 
-        <!-- 2 column grid layout for inline styling -->
-        <div class="row my-3">
-          <div class="col d-flex justify-content-center">
-            <!-- Checkbox -->
-            <div class="form-check">
-              <input
-                class="form-check-input"
-                type="checkbox"
-                value=""
-                id="form1Example3"
-                checked
-                v-model="isShowPassword"
-                @click="showPassword"
-              />
-              <label class="form-check-label" for="form1Example3">
-                Show password
-              </label>
+          <!-- 2 column grid layout for inline styling -->
+          <div
+            class="d-flex align-items-start justify-content-between my-3 px-4"
+          >
+            <div class="d-flex justify-content-center">
+              <!-- Checkbox -->
+              <div
+                class="form-check h-100 d-flex align-items-start justify-content-center"
+              >
+                <input
+                  class="form-check-input"
+                  type="checkbox"
+                  value=""
+                  id="form1Example3"
+                  checked
+                  v-model="isShowPassword"
+                  @click="showPassword"
+                />
+                <label class="form-check-label" for="form1Example3">
+                  Show password
+                </label>
+              </div>
+            </div>
+
+            <div class="text-seavphov">
+              <!-- Simple link -->
+              <label @click="forgotPassword()">Forgot password?</label>
             </div>
           </div>
+          <p v-if="Error" class="text-danger">{{ errorMessage }}</p>
+          <!-- Submit button -->
+          <button type="submit" class="btn btn-primary btn-block">
+            Log in
+          </button>
+        </form>
 
-          <div class="col">
-            <!-- Simple link -->
-            <a @click="forgotPassword()" href="">Forgot password?</a>
-          </div>
+        <!-- Register buttons -->
+        <div class="text-center mt-3">
+          Doesn't have an account?
+          <a
+            @click="
+              () => {
+                this.$router.push('/signup');
+              }
+            "
+            class="text-seavphov"
+            >Sign up.</a
+          >
         </div>
-        <p v-if="Error" class="text-danger">{{ errorMessage }}</p>
-        <!-- Submit button -->
-        <button type="submit" class="btn btn-primary btn-block">Log in</button>
-      </form>
-
-      <!-- Register buttons -->
-      <div class="text-center mt-3">
-        Doesn't have an account? <a href="/signup">Sign up</a>
       </div>
-      <p class="no-account"></p>
     </div>
   </div>
 </template>
@@ -132,16 +150,14 @@ export default {
     toggleLabel(input, bool) {
       if (input == "email") {
         this.toggleEmail = bool;
+        if (this.email.length !== 0) {
+          this.toggleEmail = true;
+        }
       } else if (input == "password") {
         this.togglePassword = bool;
-      }
-      this.toggleLabelIfInputNotEmpty();
-    },
-    toggleLabelIfInputNotEmpty() {
-      if (this.email.length !== 0) {
-        this.toggleEmail = true;
-      } else if (this.password.length !== 0) {
-        this.togglePassword = true;
+        if (this.password.length !== 0) {
+          this.togglePassword = true;
+        }
       }
     },
     showPassword() {
@@ -160,21 +176,24 @@ export default {
   
   <style scoped>
 .main-container {
-  width: 900px;
-  margin: 100px auto;
-  padding: 50px;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.row {
   background-color: #fff;
   border-radius: 30px;
-  display: flex;
+  width: 900px;
+  padding: 50px;
 }
 
 .logo {
-  width: 700px;
   text-align: center;
 }
 
 .logoimg {
-  width: 300px;
+  max-width: 300px;
 }
 
 h1 {
@@ -198,11 +217,11 @@ label {
 }
 label::after {
   background-color: #d9d9d9 !important;
-  /* width: 478px !important; */
+  width: 100% !important;
 }
 
 .special-style {
-  width: 478px !important;
+  width: 430px !important;
 }
 button {
   text-align: center;
@@ -235,5 +254,21 @@ button:hover {
 a {
   color: #a3b18a;
   text-decoration: none;
+}
+
+@media (max-width: 768px) {
+  .logoimg {
+    max-width: 150px;
+  }
+  .button {
+    width: 200px;
+  }
+  .row {
+    width: 100%;
+    padding: 20px;
+  }
+  .special-style {
+    width: 370px !important;
+  }
 }
 </style>

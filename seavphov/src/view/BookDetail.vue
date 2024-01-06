@@ -2,69 +2,79 @@
   <div class="container-sm">
     <div class="row">
       <div
-        class="d-flex flex-column flex-wrap col-12 col-md-8 p-0 rounded-7"
-        style="height: 650px"
+        class="LeftSide d-flex flex-column flex-wrap col-sm-12 col-lg-8 p-0 rounded-7 bg-seavphov-light ps-3"
       >
-        <div class="d-flex h-70">
-          <img :src="book.images" class="book_cover my-3" alt="book cover" />
-          <div>
-            <p class="book_title font-Roboto mx-4 mt-3">
-              {{ book.title }}
-            </p>
-            <p class="book_author mx-4 my-2">
-              <u class="fw-bold text-black">Author</u>: {{ book.author }}
-            </p>
-            <p class="book_category mx-4 my-2">
-              <u class="fw-bold text-black">Category</u>: {{ book.categories }}
-            </p>
-            <p class="book_condition mx-4 my-2">
-              <u class="fw-bold text-black">Book Condition</u>:
-              {{ book.condition }}
-            </p>
+        <div class="d-flex h-70 row" style="height: 70%">
+          <img
+            :src="book.images"
+            class="book_cover p-3 img-fluid col-5 h-100"
+            alt="book cover"
+          />
+          <div class="col-7 px-lg-4 px-sm-1 h-100">
+            <div class="title_div h-50 overflow-auto">
+              <p class="book_title font-Roboto mt-3">
+                {{ book.title }}
+              </p>
+            </div>
 
-            <!-- Bookmark -->
-            <button
-              class="border-0 mx-3 my-1"
-              style="background-color: #d1e7dd"
-            >
-              <i
-                class="fa-solid fa-bookmark fa-2xl"
-                style="color: yellow"
-                v-if="book.issaved"
-                @click="toggleIsSaved()"
-              ></i>
-              <i
-                class="fa-regular fa-bookmark fa-2xl"
-                style="color: darkgrey"
-                v-else
-                @click="toggleIsSaved()"
-              ></i>
-            </button>
+            <div class="h-50 BookDetailButtom">
+              <p class="book_author my-2 mt-0">
+                <u class="fw-bold text-black">Author</u>: {{ book.author }}
+              </p>
+              <p class="book_category my-2">
+                <u class="fw-bold text-black">Category</u>:
+                {{ book.categories }}
+              </p>
+              <p class="book_condition my-2">
+                <u class="fw-bold text-black">Book Condition</u>:
+                {{ book.condition }}
+              </p>
+
+              <!-- Bookmark -->
+              <button class="border-0 my-1 bg-seavphov-light p-0">
+                <i
+                  class="fa-solid fa-bookmark fa-2xl"
+                  style="color: yellow"
+                  v-if="book.issaved"
+                  @click="toggleIsSaved()"
+                ></i>
+                <i
+                  class="fa-regular fa-bookmark fa-2xl"
+                  style="color: darkgrey"
+                  v-else
+                  @click="toggleIsSaved()"
+                ></i>
+              </button>
+            </div>
           </div>
         </div>
-        <h3
-          class="d-flex mx-1 font-Roboto"
-          style="color: black; font-weight: bold"
-        >
-          Description
-        </h3>
-        <div
-          class="d-flex overflow-auto mx-1 my-1"
-          style="width: 800px; height: 120px"
-        >
-          <p>
-            {{ book.descriptions }}
-          </p>
+        <div class="pe-3" style="height: 30%">
+          <h3
+            class="d-flex ps-1 font-Roboto"
+            style="color: black; font-weight: bold"
+          >
+            Description
+          </h3>
+          <div
+            class="d-flex overflow-auto mx-1 my-1"
+            style="width: 100%; height: 120px"
+          >
+            <p>
+              {{ book.descriptions }}
+            </p>
+          </div>
         </div>
       </div>
 
       <!-- Right Container -->
-      <div class="col-12 p-0 col-md-4 ps-md-3 d-flex flex-column rounded-7">
+      <div class="d-flex flex-column col-sm-12 col-lg-4 ps-lg-3 p-0 rounded-7">
         <div
-          class="bg-seavphov rounded-7 d-flex align-items-center justify-content-center flex-wrap flex-row mt-sm-3 mt-md-0 bg-seavphov-light"
+          class="bg-seavphov rounded-7 d-flex align-items-center justify-content-center flex-wrap flex-row mt-3 mt-lg-0 bg-seavphov-light"
           style="height: 150px"
         >
-          <div class="d-flex justify-content-evenly flex-row">
+          <div
+            class="d-flex justify-content-evenly flex-row align-items-center"
+          >
             <img
               src="/img/profile.JPG?url"
               class="profile_image"
@@ -115,20 +125,16 @@
               </h6>
 
               <!-- Map -->
-              <div id="map d-flex w-75 justify-content-center mt-3">
-                <div
-                  class="mapouter d-flex justify-content-center align-item-center mt-3 mx-2"
-                >
-                  <div class="gmap_canvas d-flex">
-                    <iframe
-                      class="rounded-7"
-                      src="https://maps.google.com/maps?q=aeon%20mall%20sensok&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
-                      frameborder="0"
-                      scrolling="no"
-                      style="width: 360px; height: 200px"
-                    >
-                    </iframe>
-                  </div>
+              <div id="map" class="w-100 d-flex justify-content-center mt-3">
+                <div class="gmap_canvas">
+                  <iframe
+                    class="rounded-7"
+                    src="https://maps.google.com/maps?q=aeon%20mall%20sensok&amp;t=&amp;z=15&amp;ie=UTF8&amp;iwloc=&amp;output=embed"
+                    frameborder="0"
+                    scrolling="no"
+                    style="width: 360px; height: 200px"
+                  >
+                  </iframe>
                 </div>
               </div>
             </div>
@@ -186,18 +192,23 @@ export default {
   flex-wrap: wrap;
   width: auto;
 }
-
-.book_cover_container {
-  height: 70%;
-  display: flex;
+.LeftSize {
+  height: 650px;
 }
-
 .book_cover {
   object-fit: cover;
-  width: 300px;
-  height: 420px;
+  max-width: 100%;
+  height: 100%;
   border-radius: 20px;
   flex-direction: column;
+}
+
+.title_div {
+  overflow: visible;
+  text-overflow: ellipsis;
+}
+.title_div > p {
+  overflow: visible;
 }
 
 .book_title {
@@ -245,7 +256,6 @@ u {
 .custom-hr {
   height: 2px;
   background-color: black;
-  width: 85%;
 }
 
 .mapouter {
@@ -265,12 +275,30 @@ u {
 
 .gmap_canvas {
   overflow: hidden;
-  height: 400px;
-  width: 460px;
+  height: max-content;
+  width: max-content;
 }
 
-.gmap_canvas iframe {
-  position: relative;
-  z-index: 2;
+@media (max-width: 992px) {
+  .book_cover {
+    max-width: 200px;
+    height: 300px;
+  }
+  .book_title {
+    font-size: 30px;
+  }
+}
+@media (max-width: 576px) {
+  .book_cover {
+    max-width: 200px;
+    max-height: 250px;
+  }
+  .book_title {
+    font-size: 20px;
+    height: 40%;
+  }
+  .BookDetailButtom {
+    height: 60%;
+  }
 }
 </style>

@@ -15,7 +15,14 @@
 
       <h4 class="mt-4">Please login to see this page.</h4>
       <br />
-      <a href="/login" class="text-gray">
+      <a
+        @click="
+          () => {
+            this.$router.push('/login');
+          }
+        "
+        class="text-gray"
+      >
         <i class="fa fa-arrow-circle-right" aria-hidden="true"></i>
         Login
       </a>

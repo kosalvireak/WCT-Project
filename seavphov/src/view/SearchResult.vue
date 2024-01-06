@@ -1,6 +1,13 @@
 <template>
   <div class="SeachResult mt-4">
-    <a href="/home" class="text-gray">
+    <a
+      @click="
+        () => {
+          this.$router.push('/home');
+        }
+      "
+      class="text-gray"
+    >
       <i class="fa fa-arrow-circle-left" aria-hidden="true"></i> Back to home
     </a>
     <h4 class="mt-4">Search result for "{{ searchword }}"</h4>

@@ -12,6 +12,11 @@ const router = createRouter({
     history: createWebHistory(),
     routes: [
         {
+            path: "/",
+            redirect: { path: "/home" },
+            component: Home,
+        },
+        {
             path: "/login",
             name: "login",
             component: Login,
@@ -48,7 +53,7 @@ const router = createRouter({
         },
         {
             path: "/:pathMatch(.*)*",
-            redirect: '/signup'
+            redirect: '/home'
         }
 
     ], scrollBehavior(to, from, savedPosition) {

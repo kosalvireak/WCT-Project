@@ -10,8 +10,8 @@
       <div
         class="d-flex align-items-center justify-content-center flex-row flex-wrap"
       >
-        <div v-for="book in books" :key="book.id">
-          <Book :book="book" :key="book.id" />
+        <div v-for="book in books" :key="book.id" class="m-0 p-0">
+          <Book :book="book" :key="book.id" class="m-0 p-0" />
         </div>
       </div>
     </div>

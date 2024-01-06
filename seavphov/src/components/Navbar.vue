@@ -1,7 +1,13 @@
 <template>
   <nav class="navbar navbar-expand-md bg-seavphov p-0">
     <div class="container-fluid">
-      <a class="navbar-brand" href="/home"
+      <a
+        class="navbar-brand"
+        @click="
+          () => {
+            this.$router.push('/home');
+          }
+        "
         ><img
           src="/img/book.png"
           alt="book logo"
@@ -30,23 +36,38 @@
           style="--bs-scroll-height: 100px"
         >
           <li class="nav-item me-2 me-lg-1">
-            <a class="nav-link d-flex align-items-sm-center" href="/profile">
+            <a
+              class="nav-link d-flex align-items-sm-center"
+              @click="
+                () => {
+                  this.$router.push('/profile');
+                }
+              "
+            >
               <img
                 :src="this.$store.getters.loggedInUser.profile"
                 class="rounded-circle navbar_img border border-3"
                 alt="Black and White Portrait of a Man"
                 loading="lazy"
               />
-              <strong class="ms-1 username">{{
-                this.$store.getters.loggedInUser.username
-              }}</strong>
+              <strong
+                class="ms-1 username d-flex align-items-center justify-contents-center"
+                >{{ this.$store.getters.loggedInUser.username }}</strong
+              >
             </a>
           </li>
           <li
             class="nav-item me-2 d-flex align-items-sm-center"
             v-if="this.$store.getters.loggedInState"
           >
-            <a class="nav-link" href="/newbook">
+            <a
+              class="nav-link"
+              @click="
+                () => {
+                  this.$router.push('/newbook');
+                }
+              "
+            >
               <span><i class="fas fa-plus-circle fa-xl"></i></span>
             </a>
           </li>
@@ -57,7 +78,6 @@
           >
             <a
               class="nav-link dropdown-toggle hidden-arrow"
-              href="#"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
@@ -80,7 +100,6 @@
           >
             <a
               class="nav-link dropdown-toggle hidden-arrow"
-              href="#"
               role="button"
               data-bs-toggle="dropdown"
               aria-expanded="false"
@@ -98,12 +117,18 @@
 
           <!-- Logout -->
           <li class="nav-item me-2 d-flex align-items-sm-center">
-            <a class="nav-link" href="/login" @click="Logout()">
+            <a class="nav-link" @click="Logout()">
               <span><i class="fa-solid fa-right-from-bracket fa-xl"></i></span>
             </a>
           </li>
         </ul>
-        <a class="navbar-brand-center" href="/home"
+        <a
+          class="navbar-brand-center"
+          @click="
+            () => {
+              this.$router.push('/home');
+            }
+          "
           ><img
             src="/img/book.png"
             alt="book logo"
@@ -134,6 +159,7 @@ export default {
           "https://cdn.pixabay.com/photo/2015/10/05/22/37/blank-profile-picture-973460_960_720.png",
       });
       this.$store.dispatch("logUserOut");
+      this.$router.push("/login");
     },
   },
 };
@@ -184,7 +210,7 @@ export default {
   .NavUserInfo {
     width: 100%;
     flex-direction: row;
-    justify-content: space-evenly;
+    justify-content: space-evenly !important;
   }
   .ChatDropdown {
     left: -220px;

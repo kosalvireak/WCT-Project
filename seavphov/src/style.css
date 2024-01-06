@@ -85,3 +85,16 @@ table {
   .text-seavphov{
 	color:#5c836e !important;
   }
+
+  .ellipsis {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal; /* You may use 'nowrap' if you want to prevent wrapping within the two lines */
+}
+
+.ellipsis-container {
+    overflow: hidden;
+}
